@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CN101 Final Exam Master Study Portal - Thammasat University</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Prompt:wght@300;400;500;600;700&display=swap');
+    * {
+      font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    pre, code, .font-mono {
+      font-family: 'Fira Code', monospace !important;
+    }
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.4);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.7);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-xs py-2 px-4 text-center border-b border-indigo-700/50 flex items-center justify-center gap-2 font-medium">
+    <span class="px-2 py-0.5 rounded-full bg-rose-500 text-white font-bold animate-pulse text-[10px]">FINAL EXAM</span>
+    <span>กำหนดสอบวันพุธที่ 27 พฤศจิกายน 2568 เวลา 13:00 - 16:00 น. • น้ำหนักคะแนนชี้ชะตาเกรด <strong>45%</strong></span>
+  </div>
+
+  <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+
+    <!-- Header & Hero Section -->
+    <header class="relative bg-slate-900/90 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden backdrop-blur-xl">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div class="space-y-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              TU TSE • CN101
+            </span>
+            <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              อ.ดร.ณัฐชนน ยงเสถียรโชติ (อ.นัท)
+            </span>
+            <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              ภาคเรียนที่ 1/2568
+            </span>
+          </div>
+
+          <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
+            <span>🎓</span> CN101 Final Exam Master Study Portal
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+            ศูนย์รวมสรุปเนื้อหาหลัง Midterm ครบทุกบท • สารบัญคลิปสอนและสไลด์ PDF • คลังแนวข้อสอบจริง (Tracing & Programming) พร้อมระบบ Interactive Self-Quiz ตรวจคำตอบทันที
+          </p>
+        </div>
+
+        <!-- Point Card & Quick Stats -->
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-3 min-w-[280px]">
+          <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-slate-400 block font-medium">สัดส่วนคะแนน Final</span>
+              <span class="text-2xl font-black text-rose-400">45%</span>
+              <span class="text-[11px] text-slate-500 block">(Midterm 35% • HW 20%)</span>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-400 block font-medium">รูปแบบข้อสอบ</span>
+              <span class="text-sm font-bold text-amber-300">เขียนลงกระดาษ</span>
+              <span class="text-[11px] text-slate-400 block">Tracing + Code</span>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-indigo-950 to-purple-950 border border-indigo-700/50 rounded-2xl p-3 px-4 flex items-center justify-between text-xs">
+            <span class="text-indigo-300 font-medium">คลังต้นฉบับอาจารย์:</span>
+            <a href="https://github.com/yongsa-nut/TU_CN101_68-1.git" target="_blank" class="text-white hover:text-indigo-200 underline flex items-center gap-1 font-mono">
+              TU_CN101_68-1 ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Bar -->
+      <nav class="mt-8 pt-5 border-t border-slate-800 flex flex-wrap gap-2 sm:gap-3" id="main-nav">
+        <button onclick="switchTab('recap')" id="btn-recap" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 flex items-center gap-2">
+          <span>📖</span> 1. สรุปเนื้อหาหลัง Midterm 4 บท
+        </button>
+        <button onclick="switchTab('exam')" id="btn-exam" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+          <span>🎯</span> 2. คลังแนวข้อสอบจริง (Final Lab)
+        </button>
+        <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+          <span>⚡</span> 3. Interactive Quiz (ลองทำข้อสอบ)
+        </button>
+        <button onclick="switchTab('links')" id="btn-links" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+          <span>🔗</span> 4. สารบัญคลิป & สไลด์ อ.นัท
+        </button>
+      </nav>
+    </header>
+
+    <!-- ============================================================== -->
+    <!-- TAB 1: สรุปเนื้อหาหลัง Midterm (4 บทใหญ่) -->
+    <!-- ============================================================== -->
+    <section id="tab-recap" class="space-y-8">
+      
+      <!-- Module 1: List 2 & List Comprehension -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 lg:p-8 space-y-6 hover:border-indigo-500/40 transition-all shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2.5 py-0.5 rounded-md bg-blue-500/20 text-blue-400 font-mono text-xs font-bold border border-blue-500/30">CHAPTER 5</span>
+              <span class="text-xs text-slate-400">สัปดาห์ที่ 8 • 3 & 8 ต.ค.</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">1. List 2, 2D Lists & List Comprehension</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="https://youtu.be/42R3DX_gWWA" target="_blank" class="px-3 py-1.5 rounded-xl bg-red-600/20 text-red-300 border border-red-500/30 text-xs font-medium hover:bg-red-600 hover:text-white transition-all flex items-center gap-1.5">
+              <span>▶</span> คลิปสอน
+            </a>
+            <a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/List%202%20lecture%20note.pdf" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 text-xs font-medium hover:bg-slate-700 transition-all flex items-center gap-1.5">
+              <span>📄</span> สไลด์ PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+          <!-- Concepts -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-indigo-300 flex items-center gap-2 text-base">
+              <span>📌</span> มโนทัศน์ที่ต้องแม่น (Key Concepts)
+            </h3>
+            <ul class="space-y-2.5 text-slate-300">
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">List Slicing ขั้นสูง:</strong> <code class="text-amber-300">list[start:stop:step]</code><br>
+                เช่น <code class="text-emerald-400">[-3:]</code> คือเอา 3 ตัวสุดท้าย, <code class="text-emerald-400">[::-1]</code> คือกลับด้าน
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">Nested List (2D List):</strong> ลิสต์ซ้อนลิสต์ เข้าถึงด้วย <code class="text-amber-300">data[row][col]</code><br>
+                การวนลูปต้องใช้ Nested loop: ลูปนอกวิ่งตามแถว ลูปในวิ่งตามคอลัมน์
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">List Comprehension:</strong> ย่อ loop เหลือ 1 บรรทัด<br>
+                • มีแค่ if: <code class="text-emerald-300">[exp for x in lst if cond]</code><br>
+                • มี if-else: <code class="text-emerald-300">[exp1 if cond else exp2 for x in lst]</code>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Code Trap -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-rose-300 flex items-center gap-2 text-base">
+              <span>⚠️</span> จุดที่คนมักผิดในข้อสอบ (Exam Traps)
+            </h3>
+            <div class="bg-slate-950 p-4 rounded-2xl border border-rose-500/30 text-xs font-mono space-y-2">
+              <span class="text-slate-500 block"># ระวังการเข้าถึง Index ของ 2D List</span>
+              <pre class="text-slate-300"><code class="text-slate-300">nums = [[1, 5], [6, 7]]
+nums[0][0] = 9
+nums[1][1] = 10
+# ผลลัพธ์: [[9, 5], [6, 10]]</code></pre>
+              <div class="pt-2 text-rose-300 text-[11px] leading-relaxed border-t border-slate-800">
+                ❌ <strong>อย่าสับสน:</strong> ตัวหน้าคือแถว (Row) ตัวหลังคือหลัก (Col) เริ่มนับจาก 0 เสมอ
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 2: Functions 1 & 2 -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 lg:p-8 space-y-6 hover:border-indigo-500/40 transition-all shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2.5 py-0.5 rounded-md bg-purple-500/20 text-purple-400 font-mono text-xs font-bold border border-purple-500/30">CHAPTER 6</span>
+              <span class="text-xs text-slate-400">สัปดาห์ที่ 9-10 • 10-22 ต.ค.</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">2. Functions (ฟังก์ชันและการส่งค่า)</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="https://youtu.be/EW8Se1asaCQ" target="_blank" class="px-3 py-1.5 rounded-xl bg-red-600/20 text-red-300 border border-red-500/30 text-xs font-medium hover:bg-red-600 hover:text-white transition-all">
+              ▶ Part 1
+            </a>
+            <a href="https://youtu.be/EDPc4dfZEdE" target="_blank" class="px-3 py-1.5 rounded-xl bg-red-600/20 text-red-300 border border-red-500/30 text-xs font-medium hover:bg-red-600 hover:text-white transition-all">
+              ▶ Part 2
+            </a>
+            <a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/Function%202.pdf" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 text-xs font-medium hover:bg-slate-700 transition-all">
+              📄 สไลด์
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+          <div class="space-y-4">
+            <h3 class="font-bold text-indigo-300 flex items-center gap-2 text-base">
+              <span>📌</span> มโนทัศน์ที่ต้องแม่น (Key Concepts)
+            </h3>
+            <ul class="space-y-2.5 text-slate-300">
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">Void vs Value-Returning:</strong> ฟังก์ชันที่คืนค่าต้องมี <code class="text-amber-300">return</code> ส่งค่ากลับไป (ถ้าไม่มี return จะคืนค่าเป็น <code class="text-rose-400">None</code> โดยอัตโนมัติ)
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">Local vs Global Scope:</strong> ตัวแปรที่ประกาศในฟังก์ชันเป็น Local ภายนอกมองไม่เห็น และการเปลี่ยนค่าไม่กระทบตัวแปรข้างนอก (Pass by value สำหรับ int, float, str, tuple)
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">Default & Keyword Args:</strong> Default args ต้องอยู่ข้างหลังเสมอ เช่น <code class="text-emerald-300">def calc(x, rate=0.05):</code> และสามารถส่งค่าแบบระบุชื่อได้ <code class="text-emerald-300">calc(rate=0.1, x=100)</code>
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">Modules:</strong> <code class="text-amber-300">import math</code> (`math.pi`, `math.sqrt`) และ <code class="text-amber-300">import random</code> (`random.seed(100)`, `random.randint(1, 10)`, `random.uniform(-1, 1)`)
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="font-bold text-rose-300 flex items-center gap-2 text-base">
+              <span>⚠️</span> กับดักข้อสอบ Scope & Multiple Returns
+            </h3>
+            <div class="bg-slate-950 p-4 rounded-2xl border border-rose-500/30 text-xs font-mono space-y-2">
+              <pre class="text-slate-300"><code class="text-slate-300">def bump(x):
+    x += 3
+
+n = 5
+bump(n)
+print(n) # ได้ผลลัพธ์เป็น 5 (ไม่ใช่ 8!) เพราะ n ส่งค่าแบบ Pass by Value</code></pre>
+              <div class="pt-2 text-amber-300 text-[11px] leading-relaxed border-t border-slate-800">
+                💡 <strong>Multiple Returns:</strong> คืนค่าหลายตัวได้ด้วย <code class="text-emerald-300">return a, b, c</code> เวลาเรียกรับค่าต้องเขียน <code class="text-emerald-300">x, y, z = func()</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3: Tuple & String -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 lg:p-8 space-y-6 hover:border-indigo-500/40 transition-all shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold border border-emerald-500/30">CHAPTER 7</span>
+              <span class="text-xs text-slate-400">สัปดาห์ที่ 11 • 24 & 29 ต.ค.</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">3. Tuples & Strings (ทูเพิลและสตริงก์)</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="https://youtu.be/k_aayrn2e9Y" target="_blank" class="px-3 py-1.5 rounded-xl bg-red-600/20 text-red-300 border border-red-500/30 text-xs font-medium hover:bg-red-600 hover:text-white transition-all">
+              ▶ คลิปสอน
+            </a>
+            <a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/Tuple%20%26%20String.pdf" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 text-xs font-medium hover:bg-slate-700 transition-all">
+              📄 สไลด์
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+          <div class="space-y-4">
+            <h3 class="font-bold text-indigo-300 flex items-center gap-2 text-base">
+              <span>📌</span> มโนทัศน์ที่ต้องแม่น (Key Concepts)
+            </h3>
+            <ul class="space-y-2.5 text-slate-300">
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">Immutability:</strong> ทั้ง String และ Tuple <strong class="text-rose-400">แก้ไขค่าตรงๆ ไม่ได้</strong> เช่น <code class="text-slate-400">t[0] = 9</code> จะเกิด Error ทันที!
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">String Slicing & Repetition:</strong><br>
+                • <code class="text-emerald-300">"hello"[1:4]</code> $\rightarrow$ <code class="text-amber-300">'ell'</code><br>
+                • <code class="text-emerald-300">(1, 2) * 3</code> $\rightarrow$ <code class="text-amber-300">(1, 2, 1, 2, 1, 2)</code>
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">String Methods ยอดฮิต:</strong><br>
+                • <code class="text-emerald-300">.split(sep)</code> แยกข้อความออกเป็น List<br>
+                • <code class="text-emerald-300">sep.join(list)</code> รวม List กลับเป็นข้อความ<br>
+                • <code class="text-emerald-300">.upper()</code>, <code class="text-emerald-300">.lower()</code>, <code class="text-emerald-300">.isdigit()</code>, <code class="text-emerald-300">.strip()</code>
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="font-bold text-amber-300 flex items-center gap-2 text-base">
+              <span>💡</span> ตัวอย่างข้อสอบจริง (Pattern ที่ออกบ่อย)
+            </h3>
+            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs font-mono space-y-2">
+              <pre class="text-slate-300"><code class="text-slate-300">temp = "10:20"
+words = temp.split(":")
+first = int(words[0])
+second = int(words[1])
+print(first + second) # Output: 30</code></pre>
+              <div class="pt-2 text-slate-400 text-[11px] leading-relaxed border-t border-slate-800">
+                ✨ <strong>จำไว้:</strong> ผลจาก <code class="text-amber-300">.split()</code> ได้สมาชิกเป็น <em>String</em> เสมอ ต้องใช้ <code class="text-emerald-300">int()</code> แปลงก่อนบวกเลข
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 4: Dictionaries -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 lg:p-8 space-y-6 hover:border-indigo-500/40 transition-all shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2.5 py-0.5 rounded-md bg-amber-500/20 text-amber-400 font-mono text-xs font-bold border border-amber-500/30">CHAPTER 8</span>
+              <span class="text-xs text-slate-400">สัปดาห์ที่ 12 • 31 ต.ค. & 5 พ.ย.</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">4. Dictionaries (ดิกชันนารี & การนับความถี่)</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="https://youtu.be/ANXtNcAAynY" target="_blank" class="px-3 py-1.5 rounded-xl bg-red-600/20 text-red-300 border border-red-500/30 text-xs font-medium hover:bg-red-600 hover:text-white transition-all">
+              ▶ คลิปสอน
+            </a>
+            <a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/Dictionary.pdf" target="_blank" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 text-xs font-medium hover:bg-slate-700 transition-all">
+              📄 สไลด์
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+          <div class="space-y-4">
+            <h3 class="font-bold text-indigo-300 flex items-center gap-2 text-base">
+              <span>📌</span> มโนทัศน์ที่ต้องแม่น (Key Concepts)
+            </h3>
+            <ul class="space-y-2.5 text-slate-300">
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">โครงสร้างคู่กุญแจ-ค่า:</strong> <code class="text-amber-300">{key: value}</code> คีย์ต้องไม่ซ้ำกัน (Unique) และเป็น Immutable (เช่น int, str, tuple)
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">การอัปเดตและเพิ่มข้อมูล:</strong> <code class="text-emerald-300">dict[key] = new_val</code> ถ้ามีคีย์เดิมจะทับ ถ้ายังไม่มีจะเป็นการสร้างคีย์ใหม่
+              </li>
+              <li class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <strong class="text-white">Pattern นับความถี่ (Frequency Counter):</strong><br>
+                <code class="text-emerald-300">d[item] = d.get(item, 0) + 1</code> ออกสอบแน่นอน 100%!
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="font-bold text-emerald-300 flex items-center gap-2 text-base">
+              <span>💡</span> ตัวอย่างข้อสอบจริง (DNA Frequency)
+            </h3>
+            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs font-mono space-y-2">
+              <pre class="text-slate-300"><code class="text-slate-300">dna = "A C C T T G C C"
+dna_list = dna.split(" ")
+dna_dict = {}
+for g in dna_list:
+    dna_dict[g] = dna_dict.get(g, 0) + 1
+print(dna_dict)
+# ผลลัพธ์: {'A': 1, 'C': 4, 'T': 2, 'G': 1}</code></pre>
+              <div class="pt-2 text-slate-400 text-[11px] leading-relaxed border-t border-slate-800">
+                ✨ วิธีคิด: ตัวแรกถ้ายังไม่มีใน Dict คำสั่ง <code class="text-amber-300">.get(g, 0)</code> จะคืนค่า 0 แล้วบวก 1 ทันที สะดวกและไม่เกิด KeyError
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 2: คลังแนวข้อสอบจริง (Final Lab & Final Recap) -->
+    <!-- ============================================================== -->
+    <section id="tab-exam" class="space-y-8 hidden">
+      
+      <div class="bg-slate-900/90 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+              <span>🎯</span> คลังแนวข้อสอบจริง (Final Recap Lab ฉบับเต็ม)
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">
+              คัดเลือกและเรียบเรียงตรงจากแบบฝึกหัดทบทวน Final และข้อสอบเก่ายอดนิยมของอาจารย์
+            </p>
+          </div>
+          <button onclick="toggleAllAnswers()" id="btn-toggle-all" class="px-4 py-2 bg-indigo-600/30 hover:bg-indigo-600 border border-indigo-500/40 rounded-xl text-xs font-semibold text-indigo-200 transition-all">
+            👁️ เปิด/ปิด เฉลยทั้งหมด
+          </button>
+        </div>
+
+        <!-- Section 1: Code Tracing (10 ข้อ) -->
+        <h3 class="text-base font-bold text-indigo-300 border-b border-slate-800 pb-2 mb-4 flex items-center gap-2">
+          <span>Part 1:</span> Code Tracing (จงเขียนผลลัพธ์ของโปรแกรมต่อไปนี้)
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="tracing-grid">
+          
+          <!-- Q1 -->
+          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 hover:border-indigo-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">ข้อที่ 1</span>
+                <span>Tuple & List Slicing</span>
+              </div>
+              <pre class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-slate-200 overflow-x-auto border border-slate-800/60"><code>my_list = [10, 50, 30, 5, 7]
+your_list = tuple(my_list[3:]) * 3
+print(your_list)
+print(min(my_list), max(your_list))</code></pre>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-800/80">
+              <button onclick="toggleAnswer('ans-1')" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium block mb-2">
+                คลิกดูเฉลยและวิธีคิด
+              </button>
+              <div id="ans-1" class="hidden text-xs bg-slate-900 p-3 rounded-xl border border-indigo-500/30 space-y-1">
+                <span class="text-emerald-400 font-mono font-bold block">(5, 7, 5, 7, 5, 7)<br>5 7</span>
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                  <strong>วิธีคิด:</strong> `my_list[3:]` คือ `[5, 7]` แปลงเป็น Tuple `(5, 7)` แล้วคูณ 3 จะเบิ้ล 3 รอบ `(5, 7, 5, 7, 5, 7)` บรรทัดสอง `min` ของ my_list คือ 5 และ `max` ของ your_list คือ 7
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 hover:border-indigo-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">ข้อที่ 2</span>
+                <span>2D List Manipulation</span>
+              </div>
+              <pre class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-slate-200 overflow-x-auto border border-slate-800/60"><code>numbers = [[1, 5], [6, 7]]
+numbers[0][0] = 9
+numbers[1][1] = 10
+print(numbers)</code></pre>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-800/80">
+              <button onclick="toggleAnswer('ans-2')" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium block mb-2">
+                คลิกดูเฉลยและวิธีคิด
+              </button>
+              <div id="ans-2" class="hidden text-xs bg-slate-900 p-3 rounded-xl border border-indigo-500/30 space-y-1">
+                <span class="text-emerald-400 font-mono font-bold block">[[9, 5], [6, 10]]</span>
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                  <strong>วิธีคิด:</strong> แถว 0 หลัก 0 เปลี่ยนจาก 1 เป็น 9, แถว 1 หลัก 1 เปลี่ยนจาก 7 เป็น 10
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 hover:border-indigo-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">ข้อที่ 3</span>
+                <span>String split & List append</span>
+              </div>
+              <pre class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-slate-200 overflow-x-auto border border-slate-800/60"><code>list1 = "aa bb cc".split()
+list1.append("xx")
+list1[0] = "k"
+print(list1)</code></pre>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-800/80">
+              <button onclick="toggleAnswer('ans-3')" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium block mb-2">
+                คลิกดูเฉลยและวิธีคิด
+              </button>
+              <div id="ans-3" class="hidden text-xs bg-slate-900 p-3 rounded-xl border border-indigo-500/30 space-y-1">
+                <span class="text-emerald-400 font-mono font-bold block">['k', 'bb', 'cc', 'xx']</span>
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                  <strong>วิธีคิด:</strong> `.split()` แยกช่องว่างได้ `['aa', 'bb', 'cc']` เติม `'xx'` ต่อท้าย แล้วแก้ตัวแรกจาก `'aa'` เป็น `'k'`
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 hover:border-indigo-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">ข้อที่ 4</span>
+                <span>Custom Delimiter & Type Casting</span>
+              </div>
+              <pre class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-slate-200 overflow-x-auto border border-slate-800/60"><code>temp = "10:20"
+words = temp.split(":")
+first = int(words[0])
+second = int(words[1])
+print(first + second)</code></pre>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-800/80">
+              <button onclick="toggleAnswer('ans-4')" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium block mb-2">
+                คลิกดูเฉลยและวิธีคิด
+              </button>
+              <div id="ans-4" class="hidden text-xs bg-slate-900 p-3 rounded-xl border border-indigo-500/30 space-y-1">
+                <span class="text-emerald-400 font-mono font-bold block">30</span>
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                  <strong>วิธีคิด:</strong> แยกด้วย `:` ได้ `'10'` กับ `'20'` แปลงเป็น int แล้วบวกกันได้ $10 + 20 = 30$
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 hover:border-indigo-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">ข้อที่ 5</span>
+                <span>Default & Keyword Arguments</span>
+              </div>
+              <pre class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-slate-200 overflow-x-auto border border-slate-800/60"><code>def do_something(total, rate=0.8):
+    return total + 5 * rate
+
+print(do_something(10))
+print(do_something(10, 0.1))
+print(do_something(rate=0.3, total=5))</code></pre>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-800/80">
+              <button onclick="toggleAnswer('ans-5')" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium block mb-2">
+                คลิกดูเฉลยและวิธีคิด
+              </button>
+              <div id="ans-5" class="hidden text-xs bg-slate-900 p-3 rounded-xl border border-indigo-500/30 space-y-1">
+                <span class="text-emerald-400 font-mono font-bold block">14.0<br>10.5<br>6.5</span>
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                  <strong>วิธีคิด:</strong><br>
+                  • $10 + 5(0.8) = 14.0$<br>
+                  • $10 + 5(0.1) = 10.5$<br>
+                  • $5 + 5(0.3) = 6.5$ (ส่งแบบ Keyword args สลับที่ได้)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 hover:border-indigo-500/30 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">ข้อที่ 6</span>
+                <span>Scope of Variables (Local vs Global)</span>
+              </div>
+              <pre class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-slate-200 overflow-x-auto border border-slate-800/60"><code>my_string = "Hello"
+
+def do_another():
+    my_string = "Hello There"
+    my_string = my_string[7:]
+    print(my_string * 3)
+
+do_another()
+print(my_string)</code></pre>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-800/80">
+              <button onclick="toggleAnswer('ans-6')" class="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium block mb-2">
+                คลิกดูเฉลยและวิธีคิด
+              </button>
+              <div id="ans-6" class="hidden text-xs bg-slate-900 p-3 rounded-xl border border-indigo-500/30 space-y-1">
+                <span class="text-emerald-400 font-mono font-bold block">hereherehere<br>Hello</span>
+                <p class="text-[11px] text-slate-400 leading-relaxed">
+                  <strong>วิธีคิด:</strong> ในฟังก์ชันตัดได้ `'here'` คูณ 3 ได้ `'hereherehere'` แต่ตัวแปรในฟังก์ชันเป็น Local เมื่อจบฟังก์ชัน `my_string` ด้านนอกยังคงเป็น `'Hello'` เหมือนเดิม
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section 2: Long Programming (แบบที่ อ.นัท ชอบออกข้อใหญ่) -->
+        <div class="mt-10 pt-6 border-t border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-emerald-300 flex items-center gap-2">
+              <span>Part 2:</span> ข้อสอบเขียนโปรแกรมข้อใหญ่ (Linear Function & Data Generation)
+            </h3>
+            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg text-xs font-semibold">
+              ออกสอบแน่ 100%
+            </span>
+          </div>
+
+          <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4 text-xs sm:text-sm">
+            <p class="text-slate-300 leading-relaxed">
+              <strong>โจทย์:</strong> จงเขียนโปรแกรมสร้างข้อมูลสองชุด $X$ และ $Y$ ตามสมการเส้นตรง $y = w \cdot x + b$ โดยสุ่ม $x \in [1, 8]$ และคำนวณผลรวมยกกำลังสองของ $X, Y$ พร้อมผลต่าง โดยแบ่งเป็น 3 ฟังก์ชันตาม Pseudocode:
+            </p>
+
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-200 overflow-x-auto">
+<pre><code>import random
+
+def gen_data(w, b, n):
+    X = []
+    Y = []
+    for i in range(n):
+        x = random.randint(1, 8)
+        y = w * x + b
+        X.append(x)
+        Y.append(y)
+    return X, Y
+
+def sum_squared_diff(X, Y):
+    total_X = 0
+    total_Y = 0
+    for i in range(len(X)):
+        total_X += X[i] ** 2
+        total_Y += Y[i] ** 2
+    return total_X, total_Y, total_X - total_Y
+
+def main():
+    random.seed(100)
+    w = float(input('Enter w: '))
+    b = float(input('Enter b: '))
+    n = int(input('Enter n: '))
+    X, Y = gen_data(w, b, n)
+    X_ss, Y_ss, XY_diff = sum_squared_diff(X, Y)
+    print(f"SSX = {X_ss}, SSY = {Y_ss}, Diff = {XY_diff}")
+
+main()</code></pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 3: Interactive Quiz (ทดสอบความเข้าใจ) -->
+    <!-- ============================================================== -->
+    <section id="tab-quiz" class="space-y-6 hidden">
+      <div class="bg-slate-900/90 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+              <span>⚡</span> Interactive Exam Self-Test (ทดลองทำข้อสอบ Final)
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">
+              ฝึกทำโจทย์ Tracing และตอบคำถามแบบจับเวลา พร้อมระบบเฉลยและคิดคะแนนแบบ Real-time
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="quiz-score-badge" class="px-4 py-1.5 rounded-xl bg-slate-800 text-slate-300 font-bold text-xs border border-slate-700">
+              คะแนน: 0 / 4
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-6" id="quiz-container">
+          
+          <!-- Interactive Question 1 -->
+          <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-indigo-400">คำถามข้อที่ 1: ผลลัพธ์จากการรันโปรแกรม</span>
+              <span class="text-slate-500">1 คะแนน</span>
+            </div>
+            <pre class="bg-slate-900 p-3 rounded-xl text-xs font-mono text-slate-200"><code>list_c = [(t // 2) for t in range(7) if t % 2 == 0]
+print(sum(list_c))
+print(list_c)</code></pre>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <button onclick="checkQuiz(1, 'A', this)" class="q1-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                A) 6 และ [0, 1, 2, 3]
+              </button>
+              <button onclick="checkQuiz(1, 'B', this)" class="q1-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                B) 3 และ [0, 1, 2]
+              </button>
+              <button onclick="checkQuiz(1, 'C', this)" class="q1-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                C) 6 และ [1, 2, 3]
+              </button>
+              <button onclick="checkQuiz(1, 'D', this)" class="q1-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                D) 0 และ []
+              </button>
+            </div>
+            <div id="feedback-1" class="hidden text-xs p-3 rounded-xl mt-2"></div>
+          </div>
+
+          <!-- Interactive Question 2 -->
+          <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-indigo-400">คำถามข้อที่ 2: ข้อใดคือความจริงเกี่ยวกับ Tuple ใน Python?</span>
+              <span class="text-slate-500">1 คะแนน</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <button onclick="checkQuiz(2, 'A', this)" class="q2-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                A) แก้ไขสมาชิกข้างในได้เหมือน List
+              </button>
+              <button onclick="checkQuiz(2, 'B', this)" class="q2-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                B) เป็น Immutable แก้ไขค่าสมาชิกโดยตรงไม่ได้
+              </button>
+              <button onclick="checkQuiz(2, 'C', this)" class="q2-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                C) ใช้สัญลักษณ์ก้ามปู [ ] ในการสร้าง
+              </button>
+              <button onclick="checkQuiz(2, 'D', this)" class="q2-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                D) ไม่สามารถนำมาคูณซ้ำ (*) ได้
+              </button>
+            </div>
+            <div id="feedback-2" class="hidden text-xs p-3 rounded-xl mt-2"></div>
+          </div>
+
+          <!-- Interactive Question 3 -->
+          <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-indigo-400">คำถามข้อที่ 3: คำสั่งใดใช้ดึงค่าจาก Dictionary โดยไม่เกิด Error หากไม่พบคีย์?</span>
+              <span class="text-slate-500">1 คะแนน</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <button onclick="checkQuiz(3, 'A', this)" class="q3-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                A) dict.find(key)
+              </button>
+              <button onclick="checkQuiz(3, 'B', this)" class="q3-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                B) dict.search(key, default)
+              </button>
+              <button onclick="checkQuiz(3, 'C', this)" class="q3-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                C) dict.get(key, default)
+              </button>
+              <button onclick="checkQuiz(3, 'D', this)" class="q3-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                D) dict[key]
+              </button>
+            </div>
+            <div id="feedback-3" class="hidden text-xs p-3 rounded-xl mt-2"></div>
+          </div>
+
+          <!-- Interactive Question 4 -->
+          <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-indigo-400">คำถามข้อที่ 4: ฟังก์ชันที่ไม่มีคำสั่ง return จะคืนค่าอะไรกลับมา?</span>
+              <span class="text-slate-500">1 คะแนน</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <button onclick="checkQuiz(4, 'A', this)" class="q4-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                A) 0
+              </button>
+              <button onclick="checkQuiz(4, 'B', this)" class="q4-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                B) "" (Empty String)
+              </button>
+              <button onclick="checkQuiz(4, 'C', this)" class="q4-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                C) False
+              </button>
+              <button onclick="checkQuiz(4, 'D', this)" class="q4-opt p-3 text-left rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-all">
+                D) None
+              </button>
+            </div>
+            <div id="feedback-4" class="hidden text-xs p-3 rounded-xl mt-2"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 4: สารบัญลิงก์คลิป & สไลด์ อ.นัท (Master Resource Directory) -->
+    <!-- ============================================================== -->
+    <section id="tab-links" class="space-y-6 hidden">
+      <div class="bg-slate-900/90 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-xl">
+        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2 mb-2">
+          <span>🔗</span> สารบัญคลิปเรียน, สไลด์ PDF และ Google Colab ของ อ.นัท
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mb-6">
+          รวบรวมลิงก์อย่างเป็นทางการจากคลัง TU_CN101_68-1 ทั้งหมด ครอบคลุมตั้งแต่วันแรกหลัง Midterm จนถึงวันติวสอบ
+        </p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400 font-bold bg-slate-950/60">
+                <th class="py-3 px-4">วันที่</th>
+                <th class="py-3 px-4">หัวข้อเนื้อหา (Topic)</th>
+                <th class="py-3 px-4">คลิปวิดีโอ (YouTube)</th>
+                <th class="py-3 px-4">สไลด์บรรยาย (PDF)</th>
+                <th class="py-3 px-4">Google Colab Lab & Sol</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 font-medium">
+              <!-- Row 1 -->
+              <tr class="hover:bg-slate-800/40">
+                <td class="py-3 px-4 text-slate-400">3 ต.ค.</td>
+                <td class="py-3 px-4 text-white font-bold">List 2 (2D List & Comprehension)</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/42R3DX_gWWA" target="_blank" class="text-red-400 hover:underline">▶ ดูคลิป</a></td>
+                <td class="py-3 px-4"><a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/List%202%20lecture%20note.pdf" target="_blank" class="text-indigo-400 hover:underline">📄 List 2 Note</a></td>
+                <td class="py-3 px-4"><a href="https://colab.research.google.com/github/yongsa-nut/TU_CN101_68-1/blob/main/List_Lab_2568_(sol).ipynb" target="_blank" class="text-emerald-400 hover:underline">💻 Colab Lab Sol</a></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="hover:bg-slate-800/40">
+                <td class="py-3 px-4 text-slate-400">10 ต.ค.</td>
+                <td class="py-3 px-4 text-white font-bold">Function 1 (Intro & Calling)</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/EW8Se1asaCQ" target="_blank" class="text-red-400 hover:underline">▶ ดูคลิป</a></td>
+                <td class="py-3 px-4"><a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/fuction1.pdf" target="_blank" class="text-indigo-400 hover:underline">📄 Function 1</a></td>
+                <td class="py-3 px-4"><a href="https://colab.research.google.com/github/yongsa-nut/TU_CN101_68-1/blob/main/Function_Lab_1_2568_(sol).ipynb" target="_blank" class="text-emerald-400 hover:underline">💻 Colab Lab Sol</a></td>
+              </tr>
+              <!-- Row 3 -->
+              <tr class="hover:bg-slate-800/40">
+                <td class="py-3 px-4 text-slate-400">17 ต.ค.</td>
+                <td class="py-3 px-4 text-white font-bold">Function 2 (Args, Returns, Modules)</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/EDPc4dfZEdE" target="_blank" class="text-red-400 hover:underline">▶ ดูคลิป</a></td>
+                <td class="py-3 px-4"><a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/Function%202.pdf" target="_blank" class="text-indigo-400 hover:underline">📄 Function 2</a></td>
+                <td class="py-3 px-4"><a href="https://colab.research.google.com/github/yongsa-nut/TU_CN101_68-1/blob/main/Function_Lab_2_2568_(sol).ipynb" target="_blank" class="text-emerald-400 hover:underline">💻 Colab Lab Sol</a></td>
+              </tr>
+              <!-- Row 4 -->
+              <tr class="hover:bg-slate-800/40">
+                <td class="py-3 px-4 text-slate-400">24 ต.ค.</td>
+                <td class="py-3 px-4 text-white font-bold">Tuple & String</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/k_aayrn2e9Y" target="_blank" class="text-red-400 hover:underline">▶ ดูคลิป</a></td>
+                <td class="py-3 px-4"><a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/Tuple%20%26%20String.pdf" target="_blank" class="text-indigo-400 hover:underline">📄 Tuple & String</a></td>
+                <td class="py-3 px-4"><a href="https://colab.research.google.com/github/yongsa-nut/TU_CN101_68-1/blob/main/String_Lab_2568_(sol).ipynb" target="_blank" class="text-emerald-400 hover:underline">💻 Colab Lab Sol</a></td>
+              </tr>
+              <!-- Row 5 -->
+              <tr class="hover:bg-slate-800/40">
+                <td class="py-3 px-4 text-slate-400">31 ต.ค.</td>
+                <td class="py-3 px-4 text-white font-bold">Dictionary</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/ANXtNcAAynY" target="_blank" class="text-red-400 hover:underline">▶ ดูคลิป</a></td>
+                <td class="py-3 px-4"><a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/Dictionary.pdf" target="_blank" class="text-indigo-400 hover:underline">📄 Dictionary</a></td>
+                <td class="py-3 px-4"><a href="https://colab.research.google.com/github/yongsa-nut/TU_CN101_68-1/blob/main/Dictionary_Lab_2568_(sol).ipynb" target="_blank" class="text-emerald-400 hover:underline">💻 Colab Lab Sol</a></td>
+              </tr>
+              <!-- Row 6 -->
+              <tr class="hover:bg-slate-800/40 bg-indigo-950/20">
+                <td class="py-3 px-4 text-amber-400 font-bold">12 พ.ย.</td>
+                <td class="py-3 px-4 text-amber-300 font-bold">Final Recap (สรุปเตรียมสอบ)</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/X0o3CY5D2hM" target="_blank" class="text-red-400 hover:underline font-bold">▶ ดูคลิป Recap</a></td>
+                <td class="py-3 px-4"><a href="https://github.com/yongsa-nut/TU_CN101_68-1/blob/main/Final%20Recap.pdf" target="_blank" class="text-indigo-400 hover:underline font-bold">📄 Final Recap Note</a></td>
+                <td class="py-3 px-4"><a href="https://colab.research.google.com/github/yongsa-nut/TU_CN101_68-1/blob/main/Final_Recap_Lab_CN101_2568_(sol).ipynb" target="_blank" class="text-emerald-400 hover:underline font-bold">💻 Final Recap Sol</a></td>
+              </tr>
+              <!-- Row 7 -->
+              <tr class="hover:bg-slate-800/40 bg-purple-950/20">
+                <td class="py-3 px-4 text-purple-400 font-bold">19 พ.ย.</td>
+                <td class="py-3 px-4 text-purple-300 font-bold">Final Prep 1 (ติวข้อสอบบนกระดาษ)</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/4C7RcvBPH9M" target="_blank" class="text-red-400 hover:underline font-bold">▶ ดูคลิป Prep 1</a></td>
+                <td class="py-3 px-4 text-slate-500">-</td>
+                <td class="py-3 px-4 text-slate-500">-</td>
+              </tr>
+              <!-- Row 8 -->
+              <tr class="hover:bg-slate-800/40 bg-purple-950/20">
+                <td class="py-3 px-4 text-purple-400 font-bold">21 พ.ย.</td>
+                <td class="py-3 px-4 text-purple-300 font-bold">Final Prep 2 (ติวข้อสอบบนกระดาษ)</td>
+                <td class="py-3 px-4"><a href="https://youtu.be/7P7EfdXYMqE" target="_blank" class="text-red-400 hover:underline font-bold">▶ ดูคลิป Prep 2</a></td>
+                <td class="py-3 px-4 text-slate-500">-</td>
+                <td class="py-3 px-4 text-slate-500">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500 space-y-2">
+      <p>จัดทำเพื่อการทบทวนสอบ Final วิชา TU CN101: Introduction to Computer Programming • คณะวิศวกรรมศาสตร์ มหาวิทยาลัยธรรมศาสตร์</p>
+      <p>Developed with ❤️ by Commander Chokie & CodeSmith • Powered by GitHub Pages & Antigravity</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript logic -->
+  <script>
+    // Tab switching
+    function switchTab(tabId) {
+      const tabs = ['recap', 'exam', 'quiz', 'links'];
+      tabs.forEach(t => {
+        document.getElementById('tab-' + t).classList.add('hidden');
+        const btn = document.getElementById('btn-' + t);
+        if (t === tabId) {
+          btn.className = 'tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 flex items-center gap-2';
+        } else {
+          btn.className = 'tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2';
+        }
+      });
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+    }
+
+    // Toggle single answer
+    function toggleAnswer(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
+    // Toggle all answers
+    let allOpen = false;
+    function toggleAllAnswers() {
+      allOpen = !allOpen;
+      const ansBoxes = ['ans-1', 'ans-2', 'ans-3', 'ans-4', 'ans-5', 'ans-6'];
+      ansBoxes.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          if (allOpen) el.classList.remove('hidden');
+          else el.classList.add('hidden');
+        }
+      });
+      document.getElementById('btn-toggle-all').innerText = allOpen ? '🙈 ซ่อนเฉลยทั้งหมด' : '👁️ เปิดเฉลยทั้งหมด';
+    }
+
+    // Interactive Quiz State
+    let quizScore = 0;
+    const answered = {};
+    const correctAnswers = {
+      1: 'A',
+      2: 'B',
+      3: 'C',
+      4: 'D'
+    };
+
+    function checkQuiz(qNum, choice, btn) {
+      if (answered[qNum]) return; // prevent re-answering
+      answered[qNum] = true;
+
+      const fb = document.getElementById('feedback-' + qNum);
+      const isCorrect = choice === correctAnswers[qNum];
+
+      if (isCorrect) {
+        quizScore++;
+        btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-500');
+        fb.className = 'text-xs p-3 rounded-xl mt-2 bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-semibold';
+        fb.innerHTML = '✅ ถูกต้องยอดเยี่ยม! ได้รับ 1 คะแนน';
+      } else {
+        btn.classList.add('bg-rose-600', 'text-white', 'border-rose-500');
+        fb.className = 'text-xs p-3 rounded-xl mt-2 bg-rose-950/80 border border-rose-500/40 text-rose-300 font-semibold';
+        fb.innerHTML = `❌ ยังไม่ถูกต้อง (คำตอบที่ถูกคือข้อ ${correctAnswers[qNum]})`;
+      }
+
+      fb.classList.remove('hidden');
+      document.getElementById('quiz-score-badge').innerText = `คะแนน: ${quizScore} / 4`;
+      document.getElementById('quiz-score-badge').className = 'px-4 py-1.5 rounded-xl bg-indigo-600/30 text-indigo-300 font-bold text-xs border border-indigo-500/40';
+    }
+  </script>
+</body>
+</html>
