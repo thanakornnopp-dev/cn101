@@ -16,7 +16,7 @@
 ---
 
 ## 🌐 เข้าชมหน้าเว็บ Study Portal & Interactive Quiz
-👉 **[คลิกเพื่อเปิดเว็บพอร์ทัลสรุปเนื้อหาและทดลองทำข้อสอบ (GitHub Pages)](https://thanakornnopp-dev.github.io/tu-cn101-final-prep/)**  
+👉 **[คลิกเพื่อเปิดเว็บพอร์ทัลสรุปเนื้อหาและทดลองทำข้อสอบ (GitHub Pages)](https://thanakornnopp-dev.github.io/cn101/)**  
 *(หรือเปิดไฟล์ `index.html` บนเครื่องเบราว์เซอร์ได้ทันที)*
 
 ---
