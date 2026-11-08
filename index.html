@@ -96,19 +96,22 @@
       <!-- Navigation Bar (5 Tabs) -->
       <nav class="mt-8 pt-5 border-t border-slate-800 flex flex-wrap gap-2 sm:gap-3" id="main-nav">
         <button onclick="switchTab('textbook')" id="btn-textbook" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 flex items-center gap-2">
-          <span>👨‍🏫</span> 1. ห้องเรียนติวเข้ม 4 บท (Textbook)
+          <span>👨‍🏫</span> 1. ห้องเรียนติวเข้ม 4 บท
+        </button>
+        <button onclick="switchTab('patterns')" id="btn-patterns" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+          <span>🧭</span> 2. เจอโจทย์แบบนี้ ใช้เครื่องมือไหน?
         </button>
         <button onclick="switchTab('cheatsheet')" id="btn-cheatsheet" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
-          <span>🧠</span> 2. คัมภีร์สรุปย่อก่อนสอบ (Cheat Sheet)
+          <span>🧠</span> 3. คัมภีร์สรุปย่อก่อนสอบ (Cheat Sheet)
         </button>
         <button onclick="switchTab('exam')" id="btn-exam" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
-          <span>🎯</span> 3. คลังแนวข้อสอบจริง (Final Lab)
+          <span>🎯</span> 4. คลังแนวข้อสอบจริง & Ex 11
         </button>
         <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
-          <span>⚡</span> 4. Interactive Quiz
+          <span>⚡</span> 5. จำลองสอบ Tracing
         </button>
         <button onclick="switchTab('links')" id="btn-links" class="tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-2">
-          <span>🔗</span> 5. สารบัญคลิป & สไลด์ อ.นัท
+          <span>🔗</span> 6. สารบัญคลิป & สไลด์ อ.นัท
         </button>
       </nav>
     </header>
@@ -527,6 +530,926 @@ for item, qty in counts.items():
     </section>
 
     <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- TAB: เจอโจทย์แบบนี้ ใช้เครื่องมือไหน? (When to Use What - Decision Guide) -->
+    <!-- ============================================================== -->
+    <section id="tab-patterns" class="space-y-8 hidden">
+      
+      <!-- Hero Banner -->
+      <div class="bg-gradient-to-r from-emerald-950/70 via-teal-950/60 to-cyan-950/70 border border-emerald-500/40 rounded-3xl p-6 sm:p-8 shadow-xl flex items-start gap-4">
+        <span class="text-4xl sm:text-5xl shrink-0">🧭</span>
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+            <span>⚡ Exam Pattern-Matching System</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white">เจอโจทย์แบบนี้... นึกถึงเครื่องมือไหนทันที? (When to Use What)</h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            คู่มือถอดรหัสโจทย์ข้อสอบ TU CN101: <strong>เห็นคำสำคัญในโจทย์ (Trigger Keywords) ปุ๊บ รู้ทันทีว่าต้องหยิบคำสั่งใด ไวยากรณ์แบบไหน</strong> พร้อมเงื่อนไขการใช้งานและกับดักที่คน 90% มักตกม้าตายในห้องสอบครับ!
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Interactive Decision Tree -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🧠</span>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-white">แผนผังการตัดสินใจในห้องสอบ (Data Structure Decision Tree)</h3>
+              <p class="text-xs text-slate-400">อ่านโจทย์แล้วตอบคำถามตามลำดับเพื่อเลือกโครงสร้างข้อมูลที่ถูกต้อง 100%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs sm:text-sm">
+          <!-- Branch 1: Dict -->
+          <div class="p-4 rounded-2xl bg-amber-950/20 border border-amber-500/30 space-y-2 hover:border-amber-400 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-amber-300 flex items-center gap-1.5">🗂️ Dictionary</span>
+              <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-mono">{k: v}</span>
+            </div>
+            <p class="text-slate-300 font-semibold">เมื่อโจทย์บอก:</p>
+            <ul class="text-slate-400 space-y-1 text-xs list-disc list-inside">
+              <li>"นับความถี่ / จำนวนครั้งที่เกิดซ้ำ"</li>
+              <li>"ค้นหาด้วยชื่อ / รหัสแทนตำแหน่ง"</li>
+              <li>"จัดกลุ่มข้อมูลตามหมวดหมู่ (Group)"</li>
+            </ul>
+            <div class="pt-2 border-t border-amber-500/20 text-emerald-400 font-mono text-[11px]">
+              d[x] = d.get(x, 0) + 1
+            </div>
+          </div>
+
+          <!-- Branch 2: 2D List -->
+          <div class="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/30 space-y-2 hover:border-cyan-400 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-cyan-300 flex items-center gap-1.5">📊 2D List (Matrix)</span>
+              <span class="text-[10px] bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-full font-mono">[[ ]]</span>
+            </div>
+            <p class="text-slate-300 font-semibold">เมื่อโจทย์บอก:</p>
+            <ul class="text-slate-400 space-y-1 text-xs list-disc list-inside">
+              <li>"ตารางคะแนน / กระดานเกม"</li>
+              <li>"ข้อมูลมีแถวและคอลัมน์ (Rows & Cols)"</li>
+              <li>"ผลรวมแต่ละแถว / แต่ละหลัก"</li>
+            </ul>
+            <div class="pt-2 border-t border-cyan-500/20 text-emerald-400 font-mono text-[11px]">
+              val = matrix[row][col]
+            </div>
+          </div>
+
+          <!-- Branch 3: Tuple -->
+          <div class="p-4 rounded-2xl bg-purple-950/20 border border-purple-500/30 space-y-2 hover:border-purple-400 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-purple-300 flex items-center gap-1.5">🔒 Tuple</span>
+              <span class="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-mono">( , )</span>
+            </div>
+            <p class="text-slate-300 font-semibold">เมื่อโจทย์บอก:</p>
+            <ul class="text-slate-400 space-y-1 text-xs list-disc list-inside">
+              <li>"ห้ามเปลี่ยนแปลงข้อมูลเด็ดขาด"</li>
+              <li>"คืนค่าจากฟังก์ชันหลายๆ ค่า"</li>
+              <li>"พิกัด (x, y) หรือใช้เป็น Dict Key"</li>
+            </ul>
+            <div class="pt-2 border-t border-purple-500/20 text-emerald-400 font-mono text-[11px]">
+              t = (x,) # กฎคอมม่าตัวเดียว!
+            </div>
+          </div>
+
+          <!-- Branch 4: List -->
+          <div class="p-4 rounded-2xl bg-blue-950/20 border border-blue-500/30 space-y-2 hover:border-blue-400 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-blue-300 flex items-center gap-1.5">📋 List ปกติ</span>
+              <span class="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full font-mono">[ ]</span>
+            </div>
+            <p class="text-slate-300 font-semibold">เมื่อโจทย์บอก:</p>
+            <ul class="text-slate-400 space-y-1 text-xs list-disc list-inside">
+              <li>"เก็บรายการที่เพิ่ม ลบ แก้ไขได้"</li>
+              <li>"ลำดับข้อมูลมีความสำคัญ (Index)"</li>
+              <li>"เรียงลำดับ (sort) หา max/min"</li>
+            </ul>
+            <div class="pt-2 border-t border-blue-500/20 text-emerald-400 font-mono text-[11px]">
+              lst.append(x) | [x for x in ...]
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Category Filter Control -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
+          <div class="relative w-full sm:w-96">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">🔍</span>
+            <input type="text" id="pattern-search" oninput="searchPatternCards(this.value)" placeholder="ค้นหา เช่น นับความถี่, สุ่ม, ตาราง, split, global..." class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-all">
+          </div>
+          
+          <div class="flex flex-wrap gap-1.5 sm:gap-2 w-full sm:w-auto" id="pattern-filter-pills">
+            <button onclick="filterPatternCategory('all')" class="pattern-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition-all">ทั้งหมด (18)</button>
+            <button onclick="filterPatternCategory('ds')" class="pattern-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-all">Data Structures</button>
+            <button onclick="filterPatternCategory('string')" class="pattern-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-all">Strings & Methods</button>
+            <button onclick="filterPatternCategory('func')" class="pattern-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-all">Functions & Scope</button>
+            <button onclick="filterPatternCategory('module')" class="pattern-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-all">Math & Random</button>
+          </div>
+        </div>
+        <div id="pattern-search-count" class="text-xs text-slate-400">แสดงผล 18 รูปแบบการแก้โจทย์ทั้งหมด</div>
+      </div>
+
+      <!-- 18 Comprehensive Pattern Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="pattern-cards-container">
+
+        <!-- CARD 1: Frequency Counter -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-amber-500/40 transition-all" data-category="ds" data-keywords="นับความถี่ frequency count dict get dictionary โหวต สถิติ ตัวซ้ำ">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-amber-500/10 border border-amber-500/20">📊</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">Dictionary Pattern</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">1. การนับความถี่ / จำนวนครั้งที่เกิดซ้ำ</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">ออกสอบ 100%</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-amber-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"นับจำนวนครั้งที่ตัวอักษรหรือคำปรากฏ", "หาผู้ชนะการโหวต", "หาคำที่ซ้ำกันบ่อยที่สุด", "นับสต็อกสินค้า"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ถ้าใช้ List ต้องเขียนลูปค้นหาซ้ำซ้อน แต่ถ้าใช้ Dictionary จะสามารถเข้าถึงตัวนับของแต่ละ Key ได้ทันทีในเวลา $O(1)$ โดยใช้เมธอด <code>.get(key, 0)</code> เป็นตัวตั้งต้น
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>counts = {}
+for item in data:
+    counts[item] = counts.get(item, 0) + 1</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ กับดักข้อสอบ:</strong> ห้ามเขียน <code>counts[item] += 1</code> โดยตรงถ้ายังไม่มี key ใน dict เพราะโปรแกรมจะพังทันทีด้วย <code>KeyError</code>! การใช้ <code>.get(item, 0)</code> ปลอดภัยที่สุด
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: 2D List / Matrix -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-cyan-500/40 transition-all" data-category="ds" data-keywords="2d list matrix เมทริกซ์ ตาราง grid row col แถว หลัก กระดาน เกม">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20">▦</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20">Nested List Pattern</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">2. ตารางข้อมูล 2 มิติ (Grid & Matrix)</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">ออกสอบ 100%</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-cyan-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"ตารางข้อมูล", "เมทริกซ์ขนาด M x N", "หาผลรวมแถว (Row sum)", "หาผลรวมหลัก (Column sum)", "เส้นทแยงมุม (Diagonal)"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              เมื่อข้อมูลมีความสัมพันธ์ 2 แกน (แถว $r$ และคอลัมน์ $c$) เข้าถึงด้วย <code>matrix[r][c]</code> โดยขนาดแถวคือ <code>len(matrix)</code> และขนาดหลักคือ <code>len(matrix[0])</code>
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code># 1. การสร้างตารางขนาด R x C ที่ปลอดภัย
+grid = [[0] * C for _ in range(R)]
+
+# 2. ผลรวมของแถวที่ r
+row_sum = sum(grid[r])
+
+# 3. ผลรวมของคอลัมน์ที่ c
+col_sum = sum(grid[r][c] for r in range(len(grid)))</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ กับดักตายน้ำตื้นอันดับ 1:</strong> <strong>ห้ามเขียน <code>[[0]*C]*R</code> เด็ดขาด!</strong> เพราะทุกแถวจะชี้ไปยังตำแหน่งเดียวกันใน Memory ถ้าคุณแก้ค่าแค่ช่องเดียว มันจะเปลี่ยนตัวเลขทั้งคอลัมน์ทันที!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: List Comprehension -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-blue-500/40 transition-all" data-category="ds" data-keywords="list comprehension กรอง filter แปลง map คัดเลือก เลขคู่ ย่นย่อ loop">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-blue-500/10 border border-blue-500/20">⚡</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20">Syntax Shortcut</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">3. กรองและแปลงข้อมูลด้วย List Comprehension</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full font-semibold">ข้อสอบชอบมาก</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-blue-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"คัดเฉพาะสมาชิกที่...", "กรองเลขคู่/เลขคี่", "แปลงข้อมูลทุกตัวเป็นตัวพิมพ์ใหญ่/ตัวเลข", "สร้าง List ใหม่จากเงื่อนไข"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ช่วยย่อการเขียน Loop 4 บรรทัดเหลือเพียง 1 บรรทัด ช่วยประหยัดเวลาเขียนในกระดาษสอบอย่างมหาศาล และไม่เสี่ยงลืมประกาศลิสต์ว่าง
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code># กรองอย่างเดียว: if อยู่ข้างหลัง
+evens = [x for x in nums if x % 2 == 0]
+
+# แปลงค่า + กรอง
+sq_pos = [x**2 for x in nums if x > 0]
+
+# ถ้ามี else ต้องเอา if-else มาไว้ข้างหน้า for
+labels = ["EVEN" if x % 2 == 0 else "ODD" for x in nums]</code></pre>
+            </div>
+
+            <div class="bg-amber-950/20 border border-amber-500/30 p-3 rounded-xl text-xs text-amber-300">
+              <strong>⚠️ จุดจำแม่นๆ:</strong> ถ้ามีแค่ <code>if</code> ตัวเดียวให้อยู่ด้านหลังสุด แต่ถ้ามี <code>if ... else ...</code> ให้ย้ายทั้งคู่มาไว้ด้านหน้า <code>for</code> เสมอ!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: Tuple & Immutability -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-purple-500/40 transition-all" data-category="ds" data-keywords="tuple ทูเพิล immutable ห้ามแก้ คืนหลายค่า unpacking พิกัด comma">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-purple-500/10 border border-purple-500/20">🔒</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded-full border border-purple-500/20">Immutable Sequence</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">4. ข้อมูลคงที่ ห้ามแก้ไข (Tuple Mechanics)</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">ข้อ 16 ใน Exercise</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-purple-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"ห้ามเปลี่ยนแปลงข้อมูล", "คืนค่าจากฟังก์ชันมากกว่า 1 ค่า", "พิกัดทางเรขาคณิต (x, y)", "นำไปเป็น Key ใน Dictionary"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ใช้เมื่อต้องการความปลอดภัยของข้อมูลว่าสมาชิกจะไม่ถูกแอบแก้ไข และใช้คืนค่าหลายค่าพร้อมกันผ่าน <code>return a, b</code> (Tuple Unpacking)
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code># กฎเหล็ก: Tuple 1 สมาชิกต้องมี comma
+single = (42,) 
+
+# การต่อข้อมูลเพิ่มเข้าไปใน Tuple (สร้างก้อนใหม่)
+courses = ()
+for _ in range(n):
+    cid = input("Enter Course ID: ")
+    courses += (cid,) # ต้องมี comma หลัง cid เสมอ</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ จุดดักคะแนนของอาจารย์:</strong> ถ้าเขียน <code>courses += (cid)</code> ไม่มีจุลภาค จะกลายเป็น String ในวงเล็บธรรมดา ทำให้บวกกับ Tuple ไม่ได้และเกิด <code>TypeError</code> ทันที!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: String .split() -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-pink-500/40 transition-all" data-category="string" data-keywords="string split ตัดคำ แยกคำ input บรรทัดเดียว เว้นวรรค comma csv">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-pink-500/10 border border-pink-500/20">✂️</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-pink-400 bg-pink-500/10 px-2.5 py-0.5 rounded-full border border-pink-500/20">String Parsing</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">5. การตัดคำ / รับ Input หลายตัวในบรรทัดเดียว</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">ใช้ทุกแล็บ</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-pink-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"ป้อนตัวเลขหลายตัวคั่นด้วยช่องว่าง", "ตัดประโยคออกเป็นคำๆ", "แยกข้อมูลที่คั่นด้วยจุลภาค (,)"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ฟังก์ชัน <code>input()</code> รับข้อมูลเข้ามาเป็น String ยาวๆ ก้อนเดียว เราต้องใช้ <code>.split()</code> เพื่อผ่าออกเป็น List ของคำหรือตัวเลข
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code># 1. รับตัวเลขหลายตัวในบรรทัดเดียว
+nums = [int(x) for x in input("Enter nums: ").split()]
+
+# 2. ผ่าข้อมูลไฟล์หรือข้อความ CSV คั่นด้วยเครื่องหมาย
+parts = line.split(",")</code></pre>
+            </div>
+
+            <div class="bg-amber-950/20 border border-amber-500/30 p-3 rounded-xl text-xs text-amber-300">
+              <strong>⚠️ ข้อสังเกต:</strong> <code>.split()</code> (ไม่ใส่ตัวคั่น) จะตัด White-space ทั้งหมด (ทั้งเคาะเดียว หลายเคาะ หรือแท็บ) ให้โดยอัตโนมัติ ซึ่งดีกว่า <code>.split(' ')</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: String .join() -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-indigo-500/40 transition-all" data-category="string" data-keywords="string join เชื่อมคำ รวมคำ list to string csv คั่นด้วย">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-indigo-500/10 border border-indigo-500/20">🔗</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20">String Formatting</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">6. การเชื่อมคำในลิสต์ให้เป็นข้อความยาว</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-full font-semibold">มาตรฐานสากล</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-indigo-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"รวมลิสต์ของคำให้เป็นประโยคเดียว", "เชื่อมสมาชิกด้วยเครื่องหมายขีด (-)", "แปลงลิสต์กลับเป็นบรรทัดข้อความ"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ดีกว่าการเขียน loop เอาสตริงมา <code>+=</code> เพราะ loop แบบเดิมจะทำให้มีเครื่องหมายคั่นส่วนเกินโผล่มาที่ตัวสุดท้าย แต่ <code>.join()</code> จะคั่นเฉพาะระหว่างสมาชิกเท่านั้น!
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>words = ["TU", "Faculty", "Engineering"]
+result = " ".join(words) # "TU Faculty Engineering"
+
+# ถ้ารายการเป็นตัวเลข ต้องแปลงเป็น str ก่อน!
+nums = [1, 2, 3]
+res_dash = "-".join([str(x) for x in nums]) # "1-2-3"</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ กับดักที่ตกม้าตาย:</strong> สมาชิกใน List ที่ส่งให้ <code>.join()</code> <strong>ต้องเป็น String เท่านั้น!</strong> ถ้าเผลอส่ง <code>[1, 2, 3]</code> เข้าไปจะขึ้น <code>TypeError</code> ทันที
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7: String Slicing & Reversing -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-teal-500/40 transition-all" data-category="string" data-keywords="string slice slicing ย้อนกลับ palindrome กลับด้าน step">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-teal-500/10 border border-teal-500/20">🔄</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-0.5 rounded-full border border-teal-500/20">Index Slicing</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">7. การกลับด้านข้อความ & ดึงช่วงอักขระ</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-semibold">หมูตู้ข้อสอบ</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-teal-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"กลับด้านข้อความ (Reverse string)", "ตรวจคำพาลินโดรม (Palindrome)", "ดึงอักขระ 3 ตัวแรก/ตัวท้าย", "ดึงเฉพาะตำแหน่งคู่/คี่"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 สูตรสำเร็จ:</strong>
+              ไวยากรณ์ <code>s[start:stop:step]</code> โดยถ้าเว้นว่างไว้หมายถึงเอาตั้งแต่ต้นจนจบ
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>s = "Engineering"
+rev = s[::-1]        # กลับด้าน: "gnireenignE"
+first4 = s[:4]       # 4 ตัวแรก: "Engi"
+last3 = s[-3:]       # 3 ตัวท้าย: "ing"
+
+# ตรวจคำอ่านหน้าไปหลังเท่ากัน (Palindrome)
+is_pal = (s.lower() == s.lower()[::-1])</code></pre>
+            </div>
+
+            <div class="bg-slate-950/50 p-3 rounded-xl text-xs text-slate-400 border border-slate-800">
+              <strong>💡 ทริคจำ:</strong> <code>step = -1</code> คือการเดินถอยหลังจากขวามาซ้าย เป็นวิธีกลับด้านข้อความที่สั้นและเร็วที่สุดใน Python
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8: .strip() & .replace() -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-violet-500/40 transition-all" data-category="string" data-keywords="strip replace ลบช่องว่าง ทำความสะอาดข้อความ แทนที่ เซนเซอร์ newline">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-violet-500/10 border border-violet-500/20">🧹</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-violet-400 bg-violet-500/10 px-2.5 py-0.5 rounded-full border border-violet-500/20">String Sanitization</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">8. ลบขยะหัวท้าย & แทนที่ข้อความ</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-slate-500/10 text-slate-400 border border-slate-500/20 px-2 py-0.5 rounded-full font-semibold">จำเป็นมาก</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-violet-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"ลบช่องว่างส่วนเกินหน้า-หลัง", "ลบตัวตัดบรรทัด 
+", "แทนที่คำที่ไม่เหมาะสม", "ลบเครื่องหมายขีด (-) ออกจากเบอร์โทร"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ใช้ <code>.strip()</code> เมื่อต้องการลบขยะรอบนอก และใช้ <code>.replace(old, new)</code> เมื่อต้องการสลับหรือลบอักขระภายในประโยค
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code># ลบช่องว่างหน้า-หลัง
+clean = raw_input.strip()
+
+# ลบขีดออกจากเบอร์โทรศัพท์
+phone = "081-999-8888".replace("-", "") # "0819998888"
+
+# ลบช่องว่างตรงกลางทั้งหมด
+no_spaces = text.replace(" ", "")</code></pre>
+            </div>
+
+            <div class="bg-amber-950/20 border border-amber-500/30 p-3 rounded-xl text-xs text-amber-300">
+              <strong>⚠️ จุดจำ:</strong> <code>.strip()</code> <strong>ไม่ลบช่องว่างตรงกลาง</strong>! ถ้าอยากลบช่องว่างตรงกลางทั้งหมด ต้องใช้ <code>.replace(' ', '')</code> เท่านั้น
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 9: Grouping Pattern -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-yellow-500/40 transition-all" data-category="ds" data-keywords="grouping จัดกลุ่ม แยกหมวดหมู่ dict of list dictionary แยกเกรด">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-yellow-500/10 border border-yellow-500/20">📁</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-yellow-400 bg-yellow-500/10 px-2.5 py-0.5 rounded-full border border-yellow-500/20">Advanced Dict</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">9. การจัดกลุ่มข้อมูลตามหมวดหมู่ (Grouping)</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">ข้อสอบชอบมาก</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-yellow-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"จัดกลุ่มนักศึกษาตามเกรด", "แยกรายชื่ออาหารตามประเภท (ของคาว/ของหวาน)", "จัดหมวดหมู่ข้อมูล (Group By)"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ใช้ Dictionary ที่มี Key เป็นชื่อหมวด และ Value เป็น List ของสมาชิกที่อยู่ในหมวดนั้น
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>students = [("A", "สมชาย"), ("B", "สมหญิง"), ("A", "วิชัย")]
+groups = {}
+for grade, name in students:
+    if grade not in groups:
+        groups[grade] = [] # สร้างลิสต์ว่างถ้ายังไม่มีหมวดนี้
+    groups[grade].append(name)
+# ผลลัพธ์: {'A': ['สมชาย', 'วิชัย'], 'B': ['สมหญิง']}</code></pre>
+            </div>
+
+            <div class="bg-yellow-950/20 border border-yellow-500/30 p-3 rounded-xl text-xs text-yellow-300">
+              <strong>💡 หัวใจสำคัญ:</strong> ต้องมีบรรทัด <code>if key not in groups: groups[key] = []</code> เสมอ เพื่อสร้างกล่องลิสต์ว่างรอไว้ก่อนเรียก <code>.append()</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 10: Value-returning vs Void Function -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-emerald-500/40 transition-all" data-category="func" data-keywords="function ฟังก์ชัน return void value-returning print none ส่งค่ากลับ">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20">⚙️</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">Function Basics</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">10. ฟังก์ชันส่งค่ากลับ (return) vs ฟังก์ชันสั่งการ (Void)</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">ออกสอบ 100%</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-emerald-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"ให้ฟังก์ชันคำนวณและส่งค่ากลับ (return the value)", "นำผลลัพธ์ไปคิดต่อใน main()", "แค่แสดงผลออกจอภาพ (display/print)"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 กฎเหล็ก:</strong>
+              ถ้าโจทย์สั่งให้ฟังก์ชัน <em>"ส่งผลลัพธ์กลับ"</em> ต้องใช้คำสั่ง <code>return</code> เท่านั้น! ห้ามไป <code>print()</code> ไว้ข้างในฟังก์ชันแล้วจบ เพราะฟังก์ชันจะคืนค่า <code>None</code> ออกมา
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code># 1. Value-returning Function (มีผลลัพธ์)
+def circle_area(r):
+    return 3.14159 * (r ** 2)
+
+res = circle_area(5) # นำค่าไปบวก ลบ คูณ หาร ต่อได้
+
+# 2. Void Function (ไม่มี return)
+def show_alert(msg):
+    print(f"[ALERT]: {msg}")
+val = show_alert("Warning!") # val จะมีค่าเป็น None!</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ หลุมพราง Tracing:</strong> ในข้อสอบอ่านโค้ด ถ้าฟังก์ชันไม่มีคำสั่ง <code>return</code> แล้วตัวแปรข้างนอกไปรับค่า เช่น <code>x = my_func()</code> ค่าของ <code>x</code> จะเป็น <code>None</code> เสมอ!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 11: Local vs Global Scope -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-orange-500/40 transition-all" data-category="func" data-keywords="global scope ตัวแปร นอกฟังก์ชัน ในฟังก์ชัน unboundlocalerror">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-orange-500/10 border border-orange-500/20">🌐</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-orange-400 bg-orange-500/10 px-2.5 py-0.5 rounded-full border border-orange-500/20">Scope Rules</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">11. ขอบเขตตัวแปร & คำสั่ง global</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">จุดหลอกยอดฮิต</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-orange-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"แก้ไขค่าตัวแปรภายนอกฟังก์ชัน", "นับจำนวนรอบที่ฟังก์ชันถูกเรียกทั้งหมด (Global Counter)"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 กฎของ Python Scope:</strong>
+              ฟังก์ชันสามารถ <em>อ่านค่า (Read)</em> ตัวแปรข้างนอกได้ฟรีๆ แต่ถ้าจะ <em>แก้ไขค่า (Write/Assign)</em> ต้องประกาศ <code>global ตัวแปร</code> ก่อน มิฉะนั้น Python จะมองเป็นตัวแปร Local ใหม่
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>count = 0
+
+def add_one():
+    global count # ต้องประกาศก่อน ไม่งั้นจะ Error
+    count += 1
+
+add_one()
+print(count) # 1</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ ข้อสอบ Tracing:</strong> ถ้ามี <code>x = 10</code> อยู่นอกฟังก์ชัน แล้วในฟังก์ชันมีบรรทัด <code>x = 20</code> (โดยไม่มี <code>global</code>) ตัวแปร <code>x</code> ข้างนอกจะยังคงมีค่าเท่ากับ <code>10</code> เหมือนเดิมไม่เปลี่ยน!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 12: Pass-by-Reference & Mutable Arguments -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-rose-500/40 transition-all" data-category="func" data-keywords="pass by reference list mutation ส่งค่าเข้าฟังก์ชัน แก้ไขลิสต์ สำเนา slice">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-rose-500/10 border border-rose-500/20">💥</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2.5 py-0.5 rounded-full border border-rose-500/20">Memory Mechanics</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">12. ผลกระทบเมื่อส่ง List เข้าไปในฟังก์ชัน</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">กับดักข้อสอบ #1</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-rose-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"ฟังก์ชันดัดแปลงข้อมูลในลิสต์", "ป้องกันไม่ให้ลิสต์ตัวจริงถูกแก้", "ข้อสอบ Tracing ตรวจสอบค่าตัวแปร List หลังรันฟังก์ชัน"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 พฤติกรรม:</strong>
+              ชนิดข้อมูลที่เป็น Mutable เช่น <strong>List</strong> เมื่อส่งเข้าฟังก์ชัน Python จะส่งตำแหน่งอ้างอิง (Memory Address) เข้าไป ถ้าในฟังก์ชันไปสั่ง <code>.append()</code> หรือ <code>lst[0] = x</code> <strong>ลิสต์ตัวจริงนอกฟังก์ชันจะเปลี่ยนไปด้วยทันที!</strong>
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>def modify(lst):
+    lst.append(99) # ตัวจริงนอกฟังก์ชันเปลี่ยน!
+
+nums = [1, 2]
+modify(nums)
+print(nums) # [1, 2, 99]
+
+# ทริคป้องกัน: ส่งสำเนาแบบ Slice เข้าไปแทน
+modify(nums[:]) # ลิสต์ตัวจริงจะไม่ถูกแตะต้อง</code></pre>
+            </div>
+
+            <div class="bg-rose-950/20 border border-rose-500/30 p-3 rounded-xl text-xs text-rose-300">
+              <strong>⚠️ จุดจำ:</strong> ถ้าเป็น <code>int, float, str, tuple</code> (Immutable) ส่งเข้าฟังก์ชันไปแก้ จะ<strong>ไม่มีผลกระทบต่อภายนอก</strong>เด็ดขาด! มีแค่ List และ Dict เท่านั้นที่แก้ข้างในแล้วสะเทือนข้างนอก
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 13: Default & Keyword Arguments -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-lime-500/40 transition-all" data-category="func" data-keywords="default argument keyword argument ค่าเริ่มต้น พารามิเตอร์ ท้ายสุด">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-lime-500/10 border border-lime-500/20">🏷️</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-lime-400 bg-lime-500/10 px-2.5 py-0.5 rounded-full border border-lime-500/20">Argument Design</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">13. ค่าเริ่มต้นพารามิเตอร์ (Default Arguments)</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-lime-500/10 text-lime-400 border border-lime-500/20 px-2 py-0.5 rounded-full font-semibold">กฎเหล็กไวยากรณ์</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-lime-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"หากผู้ใช้ไม่ระบุ ให้กำหนดค่าเริ่มต้นเป็น...", "ฟังก์ชันคำนวณส่วนลดโดยมีค่าตั้งต้นเป็น 10%"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 กฎเหล็กของ Python:</strong>
+              พารามิเตอร์ที่มีค่า Default <strong>จะต้องอยู่ทางขวาสุดเสมอ!</strong> ห้ามนำหน้าพารามิเตอร์ที่ไม่มีค่า Default เด็ดขาด
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code># ถูกต้อง: default อยู่ข้างหลัง
+def calc_price(price, discount=0.1):
+    return price * (1 - discount)
+
+print(calc_price(100))      # 90.0 (ใช้ default 0.1)
+print(calc_price(100, 0.2)) # 80.0 (ทับด้วย 0.2)</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ ห้ามเขียนแบบนี้เด็ดขาด:</strong> <code>def calc(discount=0.1, price):</code> เพราะจะขึ้น <code>SyntaxError: non-default argument follows default argument</code> ทันที
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 14: random.randint vs random.choice -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-fuchsia-500/40 transition-all" data-category="module" data-keywords="random randint choice สุ่ม ตัวเลข ลูกเต๋า หยิบสมาชิก สุ่มเมนู">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20">🎲</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-fuchsia-400 bg-fuchsia-500/10 px-2.5 py-0.5 rounded-full border border-fuchsia-500/20">Random Module</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">14. สุ่มตัวเลข vs สุ่มเลือกสมาชิกจากลิสต์</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-2 py-0.5 rounded-full font-semibold">ข้อ 14-16 ออกตรงๆ</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-fuchsia-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"สุ่มตัวเลขในช่วง 111-499", "สุ่มหยิบ 1 เมนูจากรายการอาหาร", "จำลองการทอดลูกเต๋า 1-6"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เลือกให้ถูก:</strong>
+              ถ้าสุ่ม <em>ตัวเลขในช่วง</em> ใช้ <code>random.randint(a, b)</code> (รวมทั้ง a และ b)<br>
+              ถ้าสุ่ม <em>หยิบสมาชิก</em> จาก List หรือ Tuple ใช้ <code>random.choice(sequence)</code>
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>import random
+
+# สุ่มจำนวนเต็มรวมทั้ง 111 และ 499
+n = random.randint(111, 499)
+
+# สุ่มหยิบ 1 ตัวจาก List
+menu = random.choice(["Pizza", "Burger", "Salad"])</code></pre>
+            </div>
+
+            <div class="bg-fuchsia-950/20 border border-fuchsia-500/30 p-3 rounded-xl text-xs text-fuchsia-300">
+              <strong>⚠️ จุดจำ:</strong> <code>random.randint(1, 6)</code> <strong>รวมเลข 6 ด้วย</strong> แตกต่างจาก <code>range(1, 6)</code> ที่หยุดที่เลข 5!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 15: math.ceil vs math.floor vs math.sqrt -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-sky-500/40 transition-all" data-category="module" data-keywords="math sqrt ceil floor pi ปัดเศษ รากที่สอง ปัดขึ้น ปัดลง ค่าพาย">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-sky-500/10 border border-sky-500/20">📐</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full border border-sky-500/20">Math Module</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">15. ฟังก์ชันคณิตศาสตร์และการปัดเศษ</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2 py-0.5 rounded-full font-semibold">แม่นยำ</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-sky-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"หารากที่สอง", "ปัดเศษขึ้นเสมอ (Ceil)", "ปัดเศษลงเสมอ (Floor)", "คำนวณพื้นที่วงกลม ใช้ค่าพาย"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ในการคำนวณของจริง เช่น คำนวณจำนวนรถบัสที่ต้องใช้ หากมีเศษคนแม้แต่คนเดียว ต้อง <em>ปัดขึ้นเสมอ</em> (<code>math.ceil</code>)
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>import math
+
+# คน 25 คน รถนั่งได้คันละ 10 คน -> ต้องใช้ 3 คัน
+vans = math.ceil(25 / 10) # 3
+
+# ตัดเศษทิ้งเสมอ
+floor_val = math.floor(3.99) # 3
+
+# รากที่สอง
+dist = math.sqrt(3**2 + 4**2) # 5.0</code></pre>
+            </div>
+
+            <div class="bg-amber-950/20 border border-amber-500/30 p-3 rounded-xl text-xs text-amber-300">
+              <strong>⚠️ อย่าลืม:</strong> ต้องเขียน <code>import math</code> บรรทัดบนสุดเสมอ มิฉะนั้นจะขึ้น <code>NameError</code>!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 16: Sentinel Loop (Input จนกว่าจะสั่งหยุด) -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-emerald-500/40 transition-all" data-category="ds" data-keywords="sentinel loop while true input จนกว่าจะหยุด break done exit -1">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20">♾️</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">Loop Control</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">16. รับค่าไปเรื่อยๆ จนกว่าจะพิมพ์คำว่าหยุด</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-semibold">โจทย์จริง</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-emerald-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"รับคะแนนไปเรื่อยๆ จนกว่าผู้ใช้จะพิมพ์ 'done' หรือ -1", "ไม่ทราบจำนวนข้อมูลล่วงหน้า"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ถ้าไม่รู้จำนวนรอบล่วงหน้า ห้ามใช้ <code>for</code> ให้ใช้ <code>while True:</code> ร่วมกับคำสั่ง <code>break</code>
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>scores = []
+while True:
+    data = input("Enter score (or 'stop'): ").strip()
+    if data.lower() == 'stop':
+        break # หลุดออกจากลูปทันที
+    scores.append(float(data))</code></pre>
+            </div>
+
+            <div class="bg-red-950/20 border border-red-500/30 p-3 rounded-xl text-xs text-red-300">
+              <strong>⚠️ จุดตาย:</strong> อย่าลืมเช็คเงื่อนไขหยุดก่อนนำไปแปลงเป็น <code>float()</code> หรือ <code>int()</code> มิฉะนั้นโปรแกรมจะพังเพราะแปลงคำว่า 'stop' เป็นตัวเลขไม่ได้!
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 17: Modern f-string Formatting -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-teal-500/40 transition-all" data-category="string" data-keywords="f-string fstring format ทศนิยม 2 ตำแหน่ง จัดชิด comma ใส่ลูกน้ำ">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-teal-500/10 border border-teal-500/20">✨</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-0.5 rounded-full border border-teal-500/20">Display Output</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">17. การจัดฟอร์แมตตัวเลขด้วย f-string</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-slate-500/10 text-slate-400 border border-slate-500/20 px-2 py-0.5 rounded-full font-semibold">มาตรฐานการแสดงผล</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-teal-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"แสดงผลทศนิยม 2 ตำแหน่ง", "ใส่ลูกน้ำคั่นหลักพัน", "จัดให้ชิดขวาในความกว้าง 10 ตัวอักษร"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 รูปแบบคำสั่ง:</strong>
+              ใส่ตัวอักษร <code>f</code> หน้าเครื่องหมายคำพูด แล้วใช้ปีกกา <code>{variable:format}</code>
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>val = 12345.6789
+
+# ทศนิยม 2 ตำแหน่ง: 12345.68
+print(f"{val:.2f}")
+
+# ใส่ลูกน้ำคั่นหลักพัน + 2 ตำแหน่ง: 12,345.68
+print(f"{val:,.2f}")
+
+# จัดชิดขวาในความกว้าง 10 ช่อง
+print(f"{val:>10.2f}")</code></pre>
+            </div>
+
+            <div class="bg-slate-950/50 p-3 rounded-xl text-xs text-slate-400 border border-slate-800">
+              <strong>💡 ประโยชน์:</strong> อ่านง่ายที่สุด ไม่ต้องใช้ <code>%</code> หรือ <code>.format()</code> แบบยุคเก่า
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 18: String Validation (.isdigit vs .isalpha) -->
+        <div class="pattern-card bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 hover:border-blue-500/40 transition-all" data-category="string" data-keywords="isdigit isalpha ตรวจสอบตัวเลข ตรวจสอบตัวอักษร validate string">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl p-2.5 rounded-2xl bg-blue-500/10 border border-blue-500/20">🛡️</span>
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20">Input Validation</span>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-1">18. ตรวจสอบชนิดข้อมูลก่อนประมวลผล</h3>
+              </div>
+            </div>
+            <span class="text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-full font-semibold">ป้องกัน Error</span>
+          </div>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+              <span class="text-blue-300 font-bold">🎯 คำสำคัญในโจทย์:</span>
+              <p class="text-slate-300 text-xs mt-1">"ตรวจสอบว่าผู้ใช้กรอกตัวเลขหรือไม่ ก่อนแปลงเป็น int", "คัดเฉพาะตัวอักษรภาษาอังกฤษ ไม่เอาตัวเลขและสัญลักษณ์"</p>
+            </div>
+
+            <div class="text-slate-300 text-xs leading-relaxed">
+              <strong class="text-white">💡 เมื่อไหร่และทำไมต้องใช้:</strong>
+              ถ้าผู้ใช้พิมพ์ตัวอักษรเข้ามาแล้วเราเอาไป <code>int()</code> เลย โปรแกรมจะ Crash ทันที จึงต้องใช้ <code>.isdigit()</code> ดักไว้ก่อน
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto">
+<pre><code>s = input("Enter age: ").strip()
+if s.isdigit():
+    age = int(s) # ปลอดภัย 100%
+else:
+    print("Error: Please enter positive integers only!")</code></pre>
+            </div>
+
+            <div class="bg-amber-950/20 border border-amber-500/30 p-3 rounded-xl text-xs text-amber-300">
+              <strong>⚠️ จุดจำ:</strong> <code>"-5".isdigit()</code> หรือ <code>"3.14".isdigit()</code> จะได้ค่า <code>False</code> เพราะเครื่องหมายลบและจุดไม่ใช่ตัวเลขอักขระ
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Summary Comparison Table -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
+        <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+          <span>📊</span> ตารางสรุปเปรียบเทียบเทียบชัด: เมื่อไหร่เลือกอะไร? (Summary Matrix)
+        </h3>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400 bg-slate-950/60">
+                <th class="p-3">ชนิดข้อมูล (Type)</th>
+                <th class="p-3">สัญลักษณ์</th>
+                <th class="p-3">แก้ไขค่าได้? (Mutable)</th>
+                <th class="p-3">สมาชิกซ้ำได้?</th>
+                <th class="p-3">การเข้าถึงข้อมูล</th>
+                <th class="p-3">ใช้ในสถานการณ์ไหน?</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 text-slate-300">
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-bold text-blue-400">List</td>
+                <td class="p-3 font-mono">[ ]</td>
+                <td class="p-3 text-emerald-400">ได้ (Yes)</td>
+                <td class="p-3 text-emerald-400">ได้</td>
+                <td class="p-3 font-mono">lst[index]</td>
+                <td class="p-3">ข้อมูลลำดับทั่วไป เพิ่ม-ลด-เรียงลำดับได้</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-bold text-cyan-400">2D List</td>
+                <td class="p-3 font-mono">[[ ]]</td>
+                <td class="p-3 text-emerald-400">ได้ (Yes)</td>
+                <td class="p-3 text-emerald-400">ได้</td>
+                <td class="p-3 font-mono">matrix[r][c]</td>
+                <td class="p-3">ตารางคะแนน, เมทริกซ์คณิตศาสตร์, กระดานเกม</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-bold text-purple-400">Tuple</td>
+                <td class="p-3 font-mono">( , )</td>
+                <td class="p-3 text-rose-400">ไม่ได้ (Immutable)</td>
+                <td class="p-3 text-emerald-400">ได้</td>
+                <td class="p-3 font-mono">t[index]</td>
+                <td class="p-3">ข้อมูลคงที่, พิกัด (x,y), คืนหลายค่าจากฟังก์ชัน</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-bold text-amber-400">Dictionary</td>
+                <td class="p-3 font-mono">{k: v}</td>
+                <td class="p-3 text-emerald-400">ได้ (Value แก้ได้)</td>
+                <td class="p-3 text-rose-400">Key ห้ามซ้ำ</td>
+                <td class="p-3 font-mono">d[key] / .get()</td>
+                <td class="p-3">นับความถี่, ค้นหาด้วยชื่อ/รหัส, จัดกลุ่มข้อมูล</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-bold text-pink-400">String</td>
+                <td class="p-3 font-mono">" " / ' '</td>
+                <td class="p-3 text-rose-400">ไม่ได้ (Immutable)</td>
+                <td class="p-3 text-emerald-400">ได้</td>
+                <td class="p-3 font-mono">s[index] / slice</td>
+                <td class="p-3">ข้อความ, ประโยค, ตัดคำด้วย split(), ต่อด้วย join()</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
     <!-- TAB 2: คัมภีร์สรุปย่อก่อนสอบ (Cheat Sheet & Methods) -->
     <!-- ============================================================== -->
     <section id="tab-cheatsheet" class="space-y-8 hidden">
@@ -1259,8 +2182,51 @@ print(list_c)</code></pre>
   <!-- JavaScript logic -->
   <script>
     // Tab switching (5 Tabs)
+    
+    // Pattern Search & Category Filter
+    function filterPatternCategory(category) {
+      // Update pill buttons
+      const btns = document.querySelectorAll('.pattern-filter-btn');
+      btns.forEach(btn => {
+        if (btn.getAttribute('onclick').includes(category)) {
+          btn.className = 'pattern-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition-all';
+        } else {
+          btn.className = 'pattern-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-all';
+        }
+      });
+
+      const cards = document.querySelectorAll('.pattern-card');
+      let visibleCount = 0;
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      document.getElementById('pattern-search-count').textContent = `แสดงผล ${visibleCount} รูปแบบการแก้โจทย์`;
+    }
+
+    function searchPatternCards(query) {
+      const q = query.trim().toLowerCase();
+      const cards = document.querySelectorAll('.pattern-card');
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+        if (text.includes(q) || keywords.includes(q)) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      document.getElementById('pattern-search-count').textContent = `ค้นพบ ${visibleCount} รูปแบบที่ตรงกับคำว่า "${query}"`;
+    }
+
     function switchTab(tabId) {
-      const tabs = ['textbook', 'cheatsheet', 'exam', 'quiz', 'links'];
+      const tabs = ['textbook', 'patterns', 'cheatsheet', 'exam', 'quiz', 'links'];
       tabs.forEach(t => {
         const el = document.getElementById('tab-' + t);
         if (el) el.classList.add('hidden');
