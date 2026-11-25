@@ -470,7 +470,7 @@
     <div class="mt-3 p-3 rounded-lg bg-white border border-slate-200 space-y-2">
       <div class="flex items-center justify-between text-xs">
         <span class="font-semibold text-slate-700">ความคืบหน้าทบทวน</span>
-        <span id="mastery-count" class="font-bold text-blue-700 tabular-nums">0 / 10</span>
+        <span id="mastery-count" class="font-bold text-blue-700 tabular-nums">0 / 11</span>
       </div>
       <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
         <div id="mastery-bar" class="h-full bg-emerald-500 transition-all duration-300" style="width: 0%"></div>
@@ -525,6 +525,10 @@
         <a href="#sec-ch6" class="px-2 py-0.5 text-[11px] rounded-full bg-slate-200/70 text-slate-700 hover:bg-blue-100 hover:text-blue-800 no-underline">Ch.6</a>
         <a href="#sec-ch7" class="px-2 py-0.5 text-[11px] rounded-full bg-slate-200/70 text-slate-700 hover:bg-blue-100 hover:text-blue-800 no-underline">Ch.7</a>
         <a href="#sec-ch8" class="px-2 py-0.5 text-[11px] rounded-full bg-slate-200/70 text-slate-700 hover:bg-blue-100 hover:text-blue-800 no-underline">Ch.8</a>
+      </div>
+      <div class="toc-row" data-target="sec-pretest">
+        <button class="toc-status-btn" onclick="cycleStatus('pretest', this)" title="สลับสถานะ">○</button>
+        <a href="#sec-pretest" onclick="closeMobileSidebar()" class="toc-link">📝 เฉลย Pretest (Part 1 &amp; 2)</a>
       </div>
       <div class="toc-row" data-target="sec-exam">
         <button class="toc-status-btn" onclick="cycleStatus('exam', this)" title="สลับสถานะ">○</button>
@@ -591,10 +595,10 @@
             ตรงนี้คือ <strong>"ตำราเรียนฉบับบรรยายทีละจุด"</strong> ที่ผมเขียนขึ้นเพื่อให้คุณใช้ทบทวนได้ลึกซึ้งที่สุด หากลืมตรงไหน เปิดอ่านตรงนี้จะเข้าใจทันทีว่า <em>"ทำไมต้องเขียนแบบนี้"</em>, <em>"โค้ดทำงานเบื้องหลังอย่างไร"</em> และ <em>"ข้อสอบจะดักคะแนนเราตรงจุดไหน"</em> ครอบคลุม 4 บทสำคัญหลัง Midterm แบบบรรทัดต่อบรรทัดครับ!
           </p>
           <div class="flex flex-wrap gap-2 pt-2">
-            <a href="#ch5-detail" class="px-3 py-1 bg-blue-500/20 text-blue-800 rounded-lg text-xs hover:bg-blue-500/30 font-medium">ข้ามไป <span id="sec-ch5"></span>บทที่ 5: List 2 ↓</a>
-            <a href="#ch6-detail" class="px-3 py-1 bg-purple-500/20 text-purple-800 rounded-lg text-xs hover:bg-purple-500/30 font-medium">ข้ามไป <span id="sec-ch6"></span>บทที่ 6: Functions ↓</a>
-            <a href="#ch7-detail" class="px-3 py-1 bg-emerald-500/20 text-emerald-800 rounded-lg text-xs hover:bg-emerald-500/30 font-medium">ข้ามไป <span id="sec-ch7"></span>บทที่ 7: Strings & Tuples ↓</a>
-            <a href="#ch8-detail" class="px-3 py-1 bg-amber-500/20 text-amber-800 rounded-lg text-xs hover:bg-amber-500/30 font-medium">ข้ามไป <span id="sec-ch8"></span>บทที่ 8: Dictionaries ↓</a>
+            <a href="#sec-ch5" class="px-3 py-1 bg-blue-500/20 text-blue-800 rounded-lg text-xs hover:bg-blue-500/30 font-medium">ข้ามไป บทที่ 5: List 2 ↓</a>
+            <a href="#sec-ch6" class="px-3 py-1 bg-purple-500/20 text-purple-800 rounded-lg text-xs hover:bg-purple-500/30 font-medium">ข้ามไป บทที่ 6: Functions ↓</a>
+            <a href="#sec-ch7" class="px-3 py-1 bg-emerald-500/20 text-emerald-800 rounded-lg text-xs hover:bg-emerald-500/30 font-medium">ข้ามไป บทที่ 7: Strings & Tuples ↓</a>
+            <a href="#sec-ch8" class="px-3 py-1 bg-amber-500/20 text-amber-800 rounded-lg text-xs hover:bg-amber-500/30 font-medium">ข้ามไป บทที่ 8: Dictionaries ↓</a>
           </div>
         </div>
       </div>
@@ -602,7 +606,7 @@
       <!-- ========================================== -->
       <!-- CHAPTER 5: List 2, 2D Lists & Comprehension -->
       <!-- ========================================== -->
-      <article id="ch5-detail" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-blue-500/40 transition-all">
+      <article id="sec-ch5" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-blue-500/40 transition-all">
         <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-blue-500/20 text-blue-800 border border-blue-500/30 font-mono">CHAPTER 5</span>
@@ -705,7 +709,7 @@ labels = ['even' if x % 2 == 0 else 'odd' for x in range(5)]
       <!-- ========================================== -->
       <!-- CHAPTER 6: Functions & Modules -->
       <!-- ========================================== -->
-      <article id="ch6-detail" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-purple-500/40 transition-all">
+      <article id="sec-ch6" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-purple-500/40 transition-all">
         <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-purple-500/20 text-purple-800 border border-purple-500/30 font-mono">CHAPTER 6</span>
@@ -834,7 +838,7 @@ print(random.uniform(-1, 1))# สุ่มทศนิยมระหว่า�
       <!-- ========================================== -->
       <!-- CHAPTER 7: Tuples & Strings -->
       <!-- ========================================== -->
-      <article id="ch7-detail" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-emerald-500/40 transition-all">
+      <article id="sec-ch7" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-emerald-500/40 transition-all">
         <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 font-mono">CHAPTER 7</span>
@@ -918,7 +922,7 @@ print(f"{num:,}")       # '1,000,000' (ใส่เครื่องหมา�
       <!-- ========================================== -->
       <!-- CHAPTER 8: Dictionaries & Sets -->
       <!-- ========================================== -->
-      <article id="ch8-detail" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-amber-500/40 transition-all">
+      <article id="sec-ch8" class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 space-y-6 shadow-sm hover:border-amber-500/40 transition-all">
         <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-800 border border-amber-500/30 font-mono">CHAPTER 8</span>
@@ -2300,6 +2304,427 @@ else:
       </div>
     </section>
 
+    
+    <!-- ============================================================== -->
+    <!-- SECTION: PRETEST FINAL CN101 (PART 1 & PART 2)                 -->
+    <!-- ============================================================== -->
+    <section id="sec-pretest" class="paper-card space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="section-kicker">PRETEST FINAL CN101 • PART 1 &amp; PART 2</span>
+        <h2 class="text-xl font-bold text-slate-900 mt-0.5">📝 เฉลย Pretest Final ครบทั้ง 2 ไฟล์ (พร้อมวิธีไล่โค้ดละเอียด)</h2>
+        <p class="text-sm text-slate-600 mt-1">เฉลยตรงตามข้อสอบจริงทุกข้อ ทั้ง Part 1 (15 ข้อ Tracing/เติมคำ) และ Part 2 (4 ข้อเขียนโปรแกรม) พร้อมชี้จุดพลาดที่ต้องระวังก่อนเข้าห้องสอบ</p>
+      </div>
+
+      <!-- PART 1 -->
+      <div class="space-y-4">
+        <h3 class="text-base font-bold text-blue-800 border-b border-slate-200 pb-2">ตอนที่ 1: Tracing &amp; เติมโค้ด (15 ข้อ)</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <!-- P1 Q1 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900">ข้อ 1: Modulo &amp; Accumulator List</span>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">ระวังจุดนี้!</span>
+            </div>
+            <pre><code>num = [2, 3, 4]
+result = []
+total = 0
+for i in num:
+    total += i % 10
+    result.append(total)
+print(result)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>[2, 5, 9]</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีไล่โค้ดทีละรอบ (ระวังอย่าสับสนเป็น [20, 50, 90])</summary>
+              <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+                <p>• รอบ 1 (<code class="inline-code">i = 2</code>): <code class="inline-code">2 % 10 = 2</code> (หาร 10 เหลือเศษ 2!) &rarr; <code class="inline-code">total = 0 + 2 = 2</code> &rarr; <code class="inline-code">result = [2]</code></p>
+                <p>• รอบ 2 (<code class="inline-code">i = 3</code>): <code class="inline-code">3 % 10 = 3</code> &rarr; <code class="inline-code">total = 2 + 3 = 5</code> &rarr; <code class="inline-code">result = [2, 5]</code></p>
+                <p>• รอบ 3 (<code class="inline-code">i = 4</code>): <code class="inline-code">4 % 10 = 4</code> &rarr; <code class="inline-code">total = 5 + 4 = 9</code> &rarr; <code class="inline-code">result = [2, 5, 9]</code></p>
+                <p class="text-rose-700 font-semibold">⚠️ หมายเหตุ: เลขที่น้อยกว่า 10 เมื่อ <code class="inline-code">% 10</code> จะได้ตัวมันเองเสมอ ไม่ใช่คูณ 10 ครับ!</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q2 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 2: Nested Function Call</div>
+            <pre><code>def add_2(x):
+    return x + 2
+def my_func(x):
+    y = 1 + x * 2
+    return y
+print(my_func(add_2(1)))</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>7</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีไล่โค้ดทีละขั้น</summary>
+              <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+                <p>• ทำฟังก์ชันด้านในสุดก่อน: <code class="inline-code">add_2(1)</code> &rarr; คืนค่า <code class="inline-code">1 + 2 = 3</code></p>
+                <p>• ส่ง <code class="inline-code">3</code> เข้า <code class="inline-code">my_func(3)</code>: <code class="inline-code">y = 1 + 3 * 2 = 1 + 6 = 7</code> (คูณทำก่อนบวก)</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q3 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 3: math.pi Condition</div>
+            <pre><code>import math
+def check_num(x):
+    if x &gt; math.pi:
+        return x + 1
+    else:
+        return x * 0
+print(check_num(5))</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>6</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีไล่โค้ดทีละขั้น</summary>
+              <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+                <p>• <code class="inline-code">math.pi</code> มีค่าประมาณ <code class="inline-code">3.14159</code></p>
+                <p>• <code class="inline-code">5 &gt; 3.14159</code> เป็นจริง (<code class="inline-code">True</code>) จึงเข้า <code class="inline-code">if</code> และคืนค่า <code class="inline-code">5 + 1 = 6</code></p>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q4 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 4: Prefix Sum (อัปเดต List ทับค่าเดิม)</div>
+            <pre><code>numbers = [1, 3, 5, 7]
+for i in range(1, len(numbers)):
+    numbers[i] = numbers[i-1] + numbers[i]
+print(numbers)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>[1, 4, 9, 16]</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีไล่โค้ดทีละรอบ</summary>
+              <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+                <p>• <code class="inline-code">i = 1</code>: <code class="inline-code">numbers[1] = numbers[0] + numbers[1] = 1 + 3 = 4</code></p>
+                <p>• <code class="inline-code">i = 2</code>: <code class="inline-code">numbers[2] = numbers[1] + numbers[2] = 4 + 5 = 9</code> (ใช้ค่าใหม่ของ index 1!)</p>
+                <p>• <code class="inline-code">i = 3</code>: <code class="inline-code">numbers[3] = numbers[2] + numbers[3] = 9 + 7 = 16</code></p>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q5 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 5: String .isupper()</div>
+            <pre><code>my_str = "AaBcd"
+new_list = []
+for ch in my_str:
+    if ch.isupper():
+        new_list.append(ch)
+print(new_list)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>['A', 'B']</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูคำอธิบาย</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                เช็คทีละตัวอักษรใน <code class="inline-code">"AaBcd"</code> ตัวที่ <code class="inline-code">.isupper()</code> เป็นจริงมีแค่ <code class="inline-code">'A'</code> และ <code class="inline-code">'B'</code> เท่านั้น
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q6 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 6: String Repetition &amp; Concatenation</div>
+            <pre><code>my_str = "H"
+your_str = "P"
+print(my_str * 3 + "A" + your_str * 2)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>HHHAPP</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูคำอธิบาย</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                <code class="inline-code">"H" * 3</code> ได้ <code class="inline-code">"HHH"</code>, <code class="inline-code">"P" * 2</code> ได้ <code class="inline-code">"PP"</code> เชื่อมกับ <code class="inline-code">"A"</code> ได้ <code class="inline-code">HHHAPP</code>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q7 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 7: เติมค่า Keyword &amp; Default Argument</div>
+            <pre><code>def multiply(x, y, z=1):
+    return x * y + z
+print(multiply(3, y=____)) # ต้องการผลลัพธ์ 13</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>4</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีแก้สมการ</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                <code class="inline-code">x = 3</code>, <code class="inline-code">z = 1</code> (ใช้ค่า Default) &rarr; <code class="inline-code">3 * y + 1 = 13</code> &rarr; <code class="inline-code">3 * y = 12</code> &rarr; <code class="inline-code">y = 4</code>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q8 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 8: เติม Slicing ตัด 3 ตัวท้าย</div>
+            <pre><code>my_str = "Do[-]you[-]like[-]python?[-]"
+print(my_str__________) # ต้องการ Do[-]you[-]like[-]python?</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>[:-3]</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูคำอธิบาย</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                ต้องการตัด <code class="inline-code">"[-]"</code> (3 ตัวสุดท้าย) ทิ้ง ใช้ Negative Index <code class="inline-code">[:-3]</code> หรือ <code class="inline-code">[0:-3]</code>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q9 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 9: รวมค่า 2 Dictionaries ด้วย .get()</div>
+            <pre><code>d1 = {"a": 1, "b": 2}
+d2 = {"b": 3, "c": 4}
+for k, v in d2.items():
+    d1[k] = d1.get(k, 0) + v
+print(d1)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>{'a': 1, 'b': 5, 'c': 4}</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีไล่โค้ดทีละรอบ</summary>
+              <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+                <p>• <code class="inline-code">k = "b", v = 3</code>: <code class="inline-code">d1.get("b", 0)</code> ได้ <code class="inline-code">2</code> &rarr; <code class="inline-code">d1["b"] = 2 + 3 = 5</code></p>
+                <p>• <code class="inline-code">k = "c", v = 4</code>: <code class="inline-code">d1.get("c", 0)</code> ได้ <code class="inline-code">0</code> (ยังไม่มี) &rarr; <code class="inline-code">d1["c"] = 0 + 4 = 4</code></p>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q10 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 10: หา Key ที่มีค่าสูงสุดตัวแรก (break)</div>
+            <pre><code>data = {'a': 5, 'b': 9, 'c': 9}
+m = max(data.values())
+for k, v in data.items():
+    if v == m:
+        print(k)
+        break</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>b</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูคำอธิบาย</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                <code class="inline-code">m = 9</code> วนเจอ <code class="inline-code">'b': 9</code> ก่อนแล้วสั่ง <code class="inline-code">print('b')</code> จากนั้นเจอ <code class="inline-code">break</code> ออกจากลูปทันที จึงไม่พิมพ์ <code class="inline-code">'c'</code>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q11 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 11: ผลรวม Value ที่เป็นเลขคี่</div>
+            <pre><code>data = {"a": 1, "b": 4, "c": 3}
+s = 0
+for v in data.values():
+    if v % 2 == 1:
+        s += v
+print(s)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>4</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูคำอธิบาย</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                Value คือ <code class="inline-code">1, 4, 3</code> ตัวที่เป็นเลขคี่ (<code class="inline-code">v % 2 == 1</code>) คือ <code class="inline-code">1</code> และ <code class="inline-code">3</code> &rarr; <code class="inline-code">1 + 3 = 4</code>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q12 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 12: Generator Count ใน Dictionary</div>
+            <pre><code>d = {"a": 2, "b": 4, "c": 6}
+count = sum(1 for v in d.values() if v % 2 == 0 and v &gt; 3)
+print(count)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>2</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูคำอธิบาย</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                นับจำนวนค่าที่ "เป็นเลขคู่" และ "มากกว่า 3": จาก <code class="inline-code">[2, 4, 6]</code> ตัวที่ผ่านเงื่อนไขคือ <code class="inline-code">4</code> และ <code class="inline-code">6</code> (มี 2 ตัว)
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q13 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 13: หาตัวอักษรที่ซ้ำกับตัวก่อนหน้า</div>
+            <pre><code>s = "banana"
+print([s[i] for i in range(len(s)) if s[i] in s[:i]])</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>['a', 'n', 'a']</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีไล่ทีละ index (สำคัญมาก!)</summary>
+              <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+                <p>• <code class="inline-code">i=0</code> (<code class="inline-code">'b'</code>) in <code class="inline-code">""</code> &rarr; False</p>
+                <p>• <code class="inline-code">i=1</code> (<code class="inline-code">'a'</code>) in <code class="inline-code">"b"</code> &rarr; False</p>
+                <p>• <code class="inline-code">i=2</code> (<code class="inline-code">'n'</code>) in <code class="inline-code">"ba"</code> &rarr; False</p>
+                <p>• <code class="inline-code">i=3</code> (<code class="inline-code">'a'</code>) in <code class="inline-code">"ban"</code> &rarr; <strong>True</strong> (เก็บ 'a')</p>
+                <p>• <code class="inline-code">i=4</code> (<code class="inline-code">'n'</code>) in <code class="inline-code">"bana"</code> &rarr; <strong>True</strong> (เก็บ 'n')</p>
+                <p>• <code class="inline-code">i=5</code> (<code class="inline-code">'a'</code>) in <code class="inline-code">"banan"</code> &rarr; <strong>True</strong> (เก็บ 'a')</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q14 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 14: Reverse Step Slicing + .join()</div>
+            <pre><code>msg = 'Python'
+print('-'.join(msg[::-2]))</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>n-h-y</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูวิธีไล่โค้ด</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                <code class="inline-code">'Python'</code> ไล่จากหลังมาหน้าทีละ 2 ก้าว (<code class="inline-code">[::-2]</code>): index 5 (<code class="inline-code">'n'</code>) &rarr; index 3 (<code class="inline-code">'h'</code>) &rarr; index 1 (<code class="inline-code">'y'</code>) ได้ <code class="inline-code">'nhy'</code> แล้วเชื่อมด้วย <code class="inline-code">'-'</code> ได้ <code class="inline-code">n-h-y</code>
+              </div>
+            </details>
+          </div>
+
+          <!-- P1 Q15 -->
+          <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-2 md:col-span-2">
+            <div class="text-xs font-bold text-slate-900">ข้อ 15: Nested List Append</div>
+            <pre><code>a = [1, [2, 3], 4]
+a[1].append(5)
+print(a)</code></pre>
+            <div class="answer-pill text-xs">Answer: <code>[1, [2, 3, 5], 4]</code></div>
+            <details class="alt-check">
+              <summary>&gt; ดูคำอธิบาย</summary>
+              <div class="mt-2 text-xs text-slate-700 font-normal">
+                <code class="inline-code">a[1]</code> คือลิสต์ย่อย <code class="inline-code">[2, 3]</code> การสั่ง <code class="inline-code">.append(5)</code> จึงไปต่อท้ายในลิสต์ย่อยเป็น <code class="inline-code">[2, 3, 5]</code>
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PART 2 -->
+      <div class="step-block space-y-5 pt-6">
+        <h3 class="text-base font-bold text-blue-800 border-b border-slate-200 pb-2">ตอนที่ 2: เขียนโค้ดแก้โจทย์ปัญหา (4 ข้อใหญ่)</h3>
+
+        <!-- P2 Q1 -->
+        <div class="step-block space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 1: นับความถี่สระภาษาอังกฤษ (a, e, i, o, u) แบบไม่สนพิมพ์เล็ก-ใหญ่</h4>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">เติมช่องว่าง</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> แปลงข้อความเป็นพิมพ์เล็กทั้งหมดด้วย <code class="inline-code">.lower()</code> ก่อน แล้ววนลูปทีละสระใน <code class="inline-code">"aeiou"</code> ส่งไปนับในฟังก์ชัน <code class="inline-code">count_char()</code></p>
+          <pre><code>def print_character_count(a):
+    a = a.lower()
+    for i in "aeiou":
+        count = count_char(a, i)
+        print(f"{i} = {count}")
+
+def count_char(a, target):
+    count = 0
+    for ch in a:
+        if ch == target:
+            count += 1
+    return count
+
+def main():
+    user_string = input("Please enter your sentence: ")
+    print_character_count(user_string)
+
+main()</code></pre>
+          <div class="answer-pill text-xs">จุดที่ต้องเช็ค: ใน <code class="inline-code">count_char(a, target)</code> ชื่อพารามิเตอร์ที่ตั้งต้องตรงกับตัวที่ใช้ใน loop (<code class="inline-code">for ch in a: if ch == target:</code>)</div>
+        </div>
+
+        <!-- P2 Q2 -->
+        <div class="step-block space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 2: ระยะทาง (Distance) &amp; จุดกึ่งกลาง (Midpoint) ของคู่พิกัด</h4>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold">สำคัญ! มีจุดแก้จากชีท</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> รับจำนวนพิกัดด้วย <code class="inline-code">while True</code> จนกว่าจะได้เลขคู่, เก็บแต่ละจุดเป็น Tuple <code class="inline-code">(x, y)</code> ลงใน <code class="inline-code">data</code>, แล้ววนลูปทีละ 2 (<code class="inline-code">range(0, len(data), 2)</code>) เพื่อจับคู่คำนวณ</p>
+          <pre><code>import math
+
+def find_distance(c1, c2):
+    return math.sqrt((c1[0] - c2[0])**2 + (c1[1] - c2[1])**2)
+
+def find_midpoint(c1, c2):
+    return ((c1[0] + c2[0]) / 2, (c1[1] + c2[1]) / 2)
+
+def main():
+    data = []
+    while True:
+        num = int(input("Number of coordinates: "))
+        if num % 2 == 0:
+            break
+        print("Error: Please input even number.")
+
+    for i in range(num):
+        x, y = input(f"Enter coordinate #{i+1} (x and y): ").split()
+        data.append((int(x), int(y)))
+
+    max_dist = -1
+    max_c1 = None
+    max_c2 = None
+
+    for i in range(0, len(data), 2):
+        c1 = data[i]
+        c2 = data[i+1]
+        dist = find_distance(c1, c2)
+        mid = find_midpoint(c1, c2)
+        print(f"({c1[0]},{c1[1]}) and ({c2[0]},{c2[1]}): Distance = {dist:.3f}, Midpoint = ({mid[0]},{mid[1]})")
+        if dist &gt; max_dist:
+            max_dist = dist
+            max_c1 = c1
+            max_c2 = c2
+
+    print(f"The maximum distance is {max_dist:.3f} from ({max_c1[0]},{max_c1[1]}) and ({max_c2[0]},{max_c2[1]})")
+
+main()</code></pre>
+          <div class="bg-rose-50 border border-rose-200 rounded-lg p-3 text-xs text-rose-800 space-y-1">
+            <strong>⚠️ จุดสำคัญที่ช่วยแก้ให้จากลายมือในชีท (หน้า 5–6):</strong>
+            <p>1. หน้า 5 เขียน <code class="inline-code">data.append(int(x), int(y))</code> &rarr; <strong>ขาดวงเล็บ Tuple!</strong> ต้องใส่ 2 ชั้นเป็น <code class="inline-code">data.append((int(x), int(y)))</code> ไม่งั้น Error เพราะ <code class="inline-code">.append()</code> รับได้แค่ 1 ค่า</p>
+            <p>2. หน้า 6 ระวังคำสะกด <code class="inline-code">maximum</code> (ไม่ใช่ maxium) และ <code class="inline-code">{max_dist:.3f}</code> (ทศนิยม 3 ตำแหน่งตามโจทย์) รวมถึงพิกัดในตัวอย่างไม่มีช่องว่างหลังจุลภาค เช่น <code class="inline-code">(1,2)</code></p>
+          </div>
+        </div>
+
+        <!-- P2 Q3 -->
+        <div class="step-block space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 3: ฟังก์ชัน remove_value() ลบตัวเลขที่กำหนดออกจากลิสต์</h4>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">เขียนฟังก์ชัน</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> สร้างลิสต์ว่าง <code class="inline-code">result = []</code> แล้วเก็บเฉพาะตัวที่ไม่เท่ากับ <code class="inline-code">del_val</code> ปลอดภัยที่สุด (ไม่เพี้ยนเหมือนใช้ <code class="inline-code">.remove()</code> ระหว่างวน <code class="inline-code">for</code>)</p>
+          <pre><code>def remove_value(list_a, del_val):
+    result = []
+    for item in list_a:
+        if item != del_val:
+            result.append(item)
+    return result</code></pre>
+          <details class="alt-check">
+            <summary>&gt; ตรวจคำตอบ — ทำไมไม่ใช้ .remove() ใน for loop?</summary>
+            <div class="mt-2 text-xs text-slate-700 font-normal">
+              ถ้าลบสมาชิกออกจาก <code class="inline-code">list_a</code> โดยตรงระหว่างวน <code class="inline-code">for</code> ตำแหน่ง index จะเลื่อนลงทำให้ข้ามตัวถัดไปได้ (หรือถ้าอยากใช้ใน <code class="inline-code">list_a</code> เดิม ต้องใช้ <code class="inline-code">while del_val in list_a: list_a.remove(del_val)</code> แล้ว <code class="inline-code">return list_a</code>) แต่วิธีสร้าง <code class="inline-code">result = []</code> แบบที่เขียนในชีทถูกต้องและปลอดภัย 100% ครับ!
+            </div>
+          </details>
+        </div>
+
+        <!-- P2 Q4 -->
+        <div class="step-block space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 4: ผสมสตริง s1 (หน้าไปหลัง) สลับกับ s2 (หลังไปหน้า)</h4>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 font-semibold">String Slicing + Loop</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> กลับด้าน <code class="inline-code">s2</code> ด้วย <code class="inline-code">s2[::-1]</code> ก่อน แล้ววนลูปสลับหยิบทีละตัวเท่าความยาวที่สั้นกว่า (<code class="inline-code">min_len</code>) จากนั้นนำส่วนที่เหลือของตัวที่ยาวกว่ามาต่อท้ายตรงๆ</p>
+          <pre><code>s1 = input("Enter string1: ")
+s2 = input("Enter string2: ")
+
+s2_rev = s2[::-1]
+min_len = min(len(s1), len(s2))
+result = ""
+
+for i in range(min_len):
+    result += s1[i] + s2_rev[i]
+
+if len(s1) &gt; len(s2):
+    result += s1[min_len:]
+elif len(s2) &gt; len(s1):
+    result += s2_rev[min_len:]
+
+print(f"The mix string is {result}.")</code></pre>
+          <details class="alt-check">
+            <summary>&gt; ตรวจคำตอบ — ไล่เคสตัวอย่างที่ 3 ("Any" + "Interest")</summary>
+            <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+              <p>• <code class="inline-code">s1 = "Any"</code> (ยาว 3), <code class="inline-code">s2 = "Interest"</code> &rarr; <code class="inline-code">s2_rev = "tseretnI"</code> (ยาว 8)</p>
+              <p>• <code class="inline-code">min_len = 3</code>: สลับ 3 คู่แรกได้ <code class="inline-code">'A'+'t' + 'n'+'s' + 'y'+'e' = "Atnsye"</code></p>
+              <p>• <code class="inline-code">s2</code> ยาวกว่า &rarr; ต่อท้ายด้วย <code class="inline-code">s2_rev[3:] = "retnI"</code> &rarr; รวมเป็น <code class="inline-code">AtnsyeretnI</code> ตรงตามตัวอย่างเป๊ะ!</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION: FINAL EXAM LAB -->
     <section id="sec-exam" class="paper-card space-y-6">
       <div class="bg-white border border-indigo-500/30 rounded-xl p-6 sm:p-8 shadow-sm">
@@ -2803,20 +3228,42 @@ print(list_c)</code></pre>
     }
     renderMastery();
 
-    // 3. Active Sidebar Highlight on Scroll
-    const tocRows = document.querySelectorAll('.toc-row');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          tocRows.forEach(r => {
-            if (r.getAttribute('data-target') === id) r.classList.add('active');
-            else r.classList.remove('active');
-          });
+    // 3. Active Sidebar Highlight + Auto-Scroll Follow
+    const sidebarEl = document.getElementById('sidebar');
+    const tocRows = Array.from(document.querySelectorAll('.toc-row'));
+    const trackedSections = tocRows
+      .map(row => ({ row, el: document.getElementById(row.getAttribute('data-target')) }))
+      .filter(item => item.el);
+
+    let lastActiveId = null;
+    let scrollTicking = false;
+
+    function updateActiveToc() {
+      scrollTicking = false;
+      if (!trackedSections.length) return;
+      const triggerY = 160;
+      let current = trackedSections[0];
+      for (const item of trackedSections) {
+        if (item.el.getBoundingClientRect().top <= triggerY) {
+          current = item;
         }
-      });
-    }, { rootMargin: '-15% 0px -70% 0px' });
-    document.querySelectorAll('[id^="sec-"]').forEach(sec => observer.observe(sec));
+      }
+      if (current && current.el.id !== lastActiveId) {
+        lastActiveId = current.el.id;
+        tocRows.forEach(r => r.classList.toggle('active', r === current.row));
+        if (sidebarEl && window.innerWidth > 960) {
+          current.row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(updateActiveToc);
+        scrollTicking = true;
+      }
+    }, { passive: true });
+    updateActiveToc();
 
     // 4. What-If Sandbox 1: String Slicing
     const SAMPLE_STR = "THAMMASAT";
