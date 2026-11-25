@@ -2790,8 +2790,8 @@ print(list_c)</code></pre>
         if (st === '✅') done++;
       });
       const total = btns.length;
-      document.getElementById('mastery-count').textContent = <code class="inline-code">${done} / ${total}</code>;
-      document.getElementById('mastery-bar').style.width = <code class="inline-code">${Math.round((done / total) * 100)}%</code>;
+      document.getElementById('mastery-count').textContent = `${done} / ${total}`;
+      document.getElementById('mastery-bar').style.width = `${Math.round((done / total) * 100)}%`;
     }
 
     function cycleStatus(key, btn) {
@@ -2838,7 +2838,7 @@ print(list_c)</code></pre>
       const stop = parseInt(document.getElementById('rng-stop').value);
       document.getElementById('lbl-start').textContent = start;
       document.getElementById('lbl-stop').textContent = stop;
-      document.getElementById('slice-expr').textContent = <code class="inline-code">s[${start}:${stop}:${sliceStep}]</code>;
+      document.getElementById('slice-expr').textContent = `s[${start}:${stop}:${sliceStep}]`;
       
       // Compute Python slice indices accurately
       const n = SAMPLE_STR.length;
@@ -2853,7 +2853,7 @@ print(list_c)</code></pre>
         for (let i = sIdx; i > eIdx; i += sliceStep) picked.push(i);
       }
       const out = picked.map(i => SAMPLE_STR[i]).join('');
-      document.getElementById('slice-out').textContent = <code class="inline-code">"${out}"</code>;
+      document.getElementById('slice-out').textContent = `"${out}"`;
 
       const vis = document.getElementById('slice-visual');
       vis.innerHTML = SAMPLE_STR.split('').map((ch, idx) => {
@@ -2940,7 +2940,7 @@ print(list_c)</code></pre>
           card.classList.add('hidden');
         }
       });
-      document.getElementById('pattern-search-count').textContent = <code class="inline-code">แสดงผล ${visibleCount} รูปแบบการแก้โจทย์</code>;
+      document.getElementById('pattern-search-count').textContent = `แสดงผล ${visibleCount} รูปแบบการแก้โจทย์`;
     }
 
     function searchPatternCards(query) {
@@ -2957,7 +2957,7 @@ print(list_c)</code></pre>
           card.classList.add('hidden');
         }
       });
-      document.getElementById('pattern-search-count').textContent = <code class="inline-code">ค้นพบ ${visibleCount} รูปแบบที่ตรงกับคำว่า "${query}"</code>;
+      document.getElementById('pattern-search-count').textContent = `ค้นพบ ${visibleCount} รูปแบบที่ตรงกับคำว่า "${query}"`;
     }
 
     // 8. Exam Answers Toggle
@@ -2991,10 +2991,10 @@ print(list_c)</code></pre>
       } else {
         btn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
         fb.className = 'text-xs p-3 rounded-lg mt-2 bg-rose-50 border border-rose-400 text-rose-900 font-semibold';
-        fb.innerHTML = <code class="inline-code">❌ ยังไม่ถูกต้อง (คำตอบที่ถูกคือข้อ ${correctAnswers[qNum]})</code>;
+        fb.innerHTML = `❌ ยังไม่ถูกต้อง (คำตอบที่ถูกคือข้อ ${correctAnswers[qNum]})`;
       }
       fb.classList.remove('hidden');
-      document.getElementById('quiz-score-badge').innerText = <code class="inline-code">คะแนน: ${quizScore} / 4</code>;
+      document.getElementById('quiz-score-badge').innerText = `คะแนน: ${quizScore} / 4`;
     }
   </script>
 </body>
