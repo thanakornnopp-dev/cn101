@@ -532,7 +532,7 @@
       </div>
       <div class="toc-row" data-target="sec-predict20">
         <button class="toc-status-btn" onclick="cycleStatus('predict20', this)" title="สลับสถานะ">○</button>
-        <a href="#sec-predict20" onclick="closeMobileSidebar()" class="toc-link">🎯 เก็งข้อสอบเติมคำ (20 ข้อ)</a>
+        <a href="#sec-predict20" onclick="closeMobileSidebar()" class="toc-link">🎯 เก็งข้อสอบ Tracing (20 ข้อ)</a>
       </div>
       <div class="toc-row" data-target="sec-exam">
         <button class="toc-status-btn" onclick="cycleStatus('exam', this)" title="สลับสถานะ">○</button>
@@ -2730,15 +2730,15 @@ print(f"The mix string is {result}.")</code></pre>
     </section>
 
     
-    <!-- ============================================================== -->
-    <!-- SECTION: PREDICTED 20 FILL-IN-THE-BLANK QUESTIONS              -->
+        <!-- ============================================================== -->
+    <!-- SECTION: PREDICTED 20 CODE TRACING QUESTIONS                   -->
     <!-- ============================================================== -->
     <section id="sec-predict20" class="paper-card space-y-6">
       <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
         <div>
-          <span class="section-kicker">EXAM PREDICTION • FILL IN THE BLANK (20 ข้อ)</span>
-          <h2 class="text-xl font-bold text-slate-900 mt-0.5">🎯 เก็งข้อสอบแนวเติมคำ 20 ข้อ (ครบทั้ง 4 บทหลัง Midterm)</h2>
-          <p class="text-sm text-slate-600 mt-1">คัดเฉพาะจุดที่ อ.นัท ชอบออกเติมช่องว่างมากที่สุด ลองพิมพ์คำตอบแล้วกดตรวจ หรือเปิดดูเฉลยพร้อมเหตุผลได้ทุกข้อ</p>
+          <span class="section-kicker">EXAM PREDICTION • CODE TRACING (20 ข้อ)</span>
+          <h2 class="text-xl font-bold text-slate-900 mt-0.5">🎯 เก็งข้อสอบ Tracing ทายผลลัพธ์ 20 ข้อ (ครบทั้ง 4 บทหลัง Midterm)</h2>
+          <p class="text-sm text-slate-600 mt-1">แนว "จงเขียนข้อมูลส่งออกของโปรแกรมต่อไปนี้" แบบเดียวกับ Pretest ตอนที่ 1 ลองไล่โค้ดในใจแล้วพิมพ์คำตอบเช็กได้เลย!</p>
         </div>
         <div id="predict-score-badge" class="px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold tabular-nums shrink-0">
           คะแนน: 0 / 20
@@ -2749,432 +2749,424 @@ print(f"The mix string is {result}.")</code></pre>
         
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 1: List Comprehension กรองเลขคู่ยกกำลังสอง</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 1: List Slicing แบบถอยหลัง (Negative Step)</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-blue-50 text-blue-700 border-blue-200 shrink-0">Ch.5</span>
           </div>
-          <pre><code>nums = [1, 2, 3, 4, 5]
-res = [x**2 for x in nums if __________]
-print(res)  # Output: [4, 16]</code></pre>
+          <pre><code>nums = [10, 20, 30, 40, 50]
+print(nums[4:0:-2])</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-1" onkeydown="if(event.key==='Enter') checkPredict(1)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-1" onkeydown="if(event.key==='Enter') checkPredict(1)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(1)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-1" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>x % 2 == 0</code></div>
-              <p>เงื่อนไขกรองเลขคู่คือหารด้วย 2 ลงตัว (เศษเป็น 0) จึงเติม <code class="inline-code">x % 2 == 0</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>[50, 30]</code></div>
+              <p>เริ่มที่ index 4 (<code class="inline-code">50</code>) ถอยทีละ 2 ไปหยุดก่อน index 0: ได้ index 4 (<code class="inline-code">50</code>) &rarr; index 2 (<code class="inline-code">30</code>) และไม่รวม index 0 (<code class="inline-code">10</code>)</p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 2: สร้าง 2D List ขนาด R x C อย่างปลอดภัย (กันบั๊ก Shallow Copy)</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 2: Aliasing (b = a) vs Slice Copy (c = a[:])</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-blue-50 text-blue-700 border-blue-200 shrink-0">Ch.5</span>
           </div>
-          <pre><code>R, C = 3, 2
-grid = [[0] * C ________________]
-grid[0][1] = 9
-print(grid[1][1])  # Output: 0 (ต้องไม่เปลี่ยนตามแถว 0)</code></pre>
+          <pre><code>a = [1, 2, 3]
+b = a
+c = a[:]
+b[0] = 9
+c[1] = 8
+print(a, c)</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-2" onkeydown="if(event.key==='Enter') checkPredict(2)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-2" onkeydown="if(event.key==='Enter') checkPredict(2)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(2)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-2" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>for _ in range(R)</code></div>
-              <p>ห้ามใช้ <code class="inline-code">[[0]*C]*R</code> ต้องใช้ List Comprehension <code class="inline-code">for _ in range(R)</code> เพื่อสร้าง List แยกอิสระทุกแถว</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>[9, 2, 3] [1, 8, 3]</code></div>
+              <p><code class="inline-code">b = a</code> ชี้ก้อนเดียวกัน แก้ <code class="inline-code">b[0]</code> กระทบ <code class="inline-code">a</code> เป็น <code class="inline-code">[9, 2, 3]</code> ส่วน <code class="inline-code">c = a[:]</code> เป็นคนละก้อน จึงไม่กระทบ <code class="inline-code">a</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 3: หาผลรวมของคอลัมน์ที่ c ใน 2D List</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 3: 2D List Comprehension + เงื่อนไข</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-blue-50 text-blue-700 border-blue-200 shrink-0">Ch.5</span>
           </div>
-          <pre><code>m = [[1, 2], [3, 4], [5, 6]]
-c = 1
-total = sum(__________ for r in range(len(m)))
-print(total)  # Output: 12 (2 + 4 + 6)</code></pre>
+          <pre><code>m = [[2, 4], [6, 8], [1, 3]]
+print([row[1] for row in m if row[0] > 1])</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-3" onkeydown="if(event.key==='Enter') checkPredict(3)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-3" onkeydown="if(event.key==='Enter') checkPredict(3)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(3)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-3" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>m[r][c]</code></div>
-              <p>แถวเปลี่ยนไปเรื่อยๆ ตาม <code class="inline-code">r</code> ส่วนหลักคงที่คือ <code class="inline-code">c</code> จึงอ้างอิงช่องด้วย <code class="inline-code">m[r][c]</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>[4, 8]</code></div>
+              <p>แถวที่ <code class="inline-code">row[0] &gt; 1</code> มี <code class="inline-code">[2, 4]</code> และ <code class="inline-code">[6, 8]</code> (ส่วน <code class="inline-code">[1, 3]</code> ไม่ผ่านเพราะ 1 ไม่มากกว่า 1) ดึง <code class="inline-code">row[1]</code> ได้ <code class="inline-code">[4, 8]</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 4: List Slicing ตัดสมาชิกตัวแรกและตัวสุดท้ายทิ้ง</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 4: List Comprehension แบบมี if-else</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-blue-50 text-blue-700 border-blue-200 shrink-0">Ch.5</span>
           </div>
-          <pre><code>data = [10, 20, 30, 40, 50]
-print(data[______])  # Output: [20, 30, 40]</code></pre>
+          <pre><code>vals = [1, 2, 3, 4]
+print([x*10 if x%2==0 else x for x in vals])</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-4" onkeydown="if(event.key==='Enter') checkPredict(4)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-4" onkeydown="if(event.key==='Enter') checkPredict(4)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(4)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-4" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>1:-1</code></div>
-              <p>เริ่มที่ index <code class="inline-code">1</code> (ตัวที่ 2) และหยุดก่อน index <code class="inline-code">-1</code> (ตัวสุดท้าย) จึงได้ <code class="inline-code">1:-1</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>[1, 20, 3, 40]</code></div>
+              <p>เลขคู่ (<code class="inline-code">2, 4</code>) คูณ 10 ได้ <code class="inline-code">20, 40</code> ส่วนเลขคี่ (<code class="inline-code">1, 3</code>) คงเดิม</p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 5: ส่งสำเนา List เข้าฟังก์ชันไม่ให้ตัวจริงนอกฟังก์ชันถูกแก้</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 5: การแก้ไขสมาชิกใน 2D List</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-blue-50 text-blue-700 border-blue-200 shrink-0">Ch.5</span>
           </div>
-          <pre><code>def add_99(lst):
-    lst.append(99)
-orig = [1, 2]
-add_99(________)
-print(orig)  # Output: [1, 2]</code></pre>
+          <pre><code>g = [[1, 2], [3, 4]]
+g[0][1] += g[1][0]
+print(g)</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-5" onkeydown="if(event.key==='Enter') checkPredict(5)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-5" onkeydown="if(event.key==='Enter') checkPredict(5)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(5)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-5" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>orig[:]</code></div>
-              <p>การส่ง <code class="inline-code">orig[:]</code> (หรือ <code class="inline-code">orig.copy()</code>) จะสร้างลิสต์สำเนาใหม่ ทำให้ <code class="inline-code">orig</code> ตัวจริงไม่ถูกแก้ไข</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>[[1, 5], [3, 4]]</code></div>
+              <p><code class="inline-code">g[0][1]</code> คือ <code class="inline-code">2</code>, <code class="inline-code">g[1][0]</code> คือ <code class="inline-code">3</code> &rarr; <code class="inline-code">2 + 3 = 5</code> อัปเดตกลับไปที่แถว 0 หลัก 1</p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 6: กำหนดค่า Default Argument ให้ส่วนลดเป็น 10%</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 6: Local vs Global Scope (ไม่มีคำสั่ง global)</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-purple-50 text-purple-700 border-purple-200 shrink-0">Ch.6</span>
           </div>
-          <pre><code>def calc(price, ____________):
-    return price * (1 - discount)
-print(calc(100))  # Output: 90.0</code></pre>
+          <pre><code>x = 10
+def f():
+    x = 20
+    return x + 5
+print(f(), x)</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-6" onkeydown="if(event.key==='Enter') checkPredict(6)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-6" onkeydown="if(event.key==='Enter') checkPredict(6)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(6)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-6" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>discount=0.1</code></div>
-              <p>Default argument ต้องอยู่พารามิเตอร์ขวาสุดเสมอ เขียนเป็น <code class="inline-code">discount=0.1</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>25 10</code></div>
+              <p>ใน <code class="inline-code">f()</code> สร้างตัวแปร Local <code class="inline-code">x = 20</code> คืน <code class="inline-code">25</code> โดยไม่กระทบ <code class="inline-code">x = 10</code> ภายนอก!</p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 7: แก้ไขตัวแปร Global จากภายในฟังก์ชัน</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 7: Mutable List + Reassignment ในฟังก์ชัน (กับดักสุดคลาสสิก!)</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-purple-50 text-purple-700 border-purple-200 shrink-0">Ch.6</span>
           </div>
-          <pre><code>cnt = 0
-def inc():
-    __________
-    cnt += 1
-inc()
-print(cnt)  # Output: 1</code></pre>
+          <pre><code>def g(lst):
+    lst.append(4)
+    lst = [9, 9]
+a = [1, 2]
+g(a)
+print(a)</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-7" onkeydown="if(event.key==='Enter') checkPredict(7)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-7" onkeydown="if(event.key==='Enter') checkPredict(7)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(7)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-7" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>global cnt</code></div>
-              <p>ถ้าต้องการแก้ไขค่า (<code class="inline-code">+=</code> หรือ <code class="inline-code">=</code>) ตัวแปรนอกฟังก์ชัน ต้องประกาศ <code class="inline-code">global cnt</code> ก่อนเสมอ</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>[1, 2, 4]</code></div>
+              <p><code class="inline-code">lst.append(4)</code> แก้ลิสต์ตัวจริง <code class="inline-code">a</code> เป็น <code class="inline-code">[1, 2, 4]</code> แต่ <code class="inline-code">lst = [9, 9]</code> แค่เปลี่ยนตัวชี้ Local ไม่กระทบ <code class="inline-code">a</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 8: ฟังก์ชันคืนค่า 2 ค่าพร้อมกัน (Tuple Unpacking)</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 8: Void Function ที่ลืมใส่ return</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-purple-50 text-purple-700 border-purple-200 shrink-0">Ch.6</span>
           </div>
-          <pre><code>def min_max(a):
-    return ____________
-lo, hi = min_max([8, 2, 5])
-print(lo, hi)  # Output: 2 8</code></pre>
+          <pre><code>def add(a, b):
+    c = a + b
+print(add(3, 4))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-8" onkeydown="if(event.key==='Enter') checkPredict(8)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-8" onkeydown="if(event.key==='Enter') checkPredict(8)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(8)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-8" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>min(a), max(a)</code></div>
-              <p>คั่นค่าที่ต้องการคืนด้วยคอมม่า <code class="inline-code">min(a), max(a)</code> Python จะแพ็คเป็น Tuple ส่งกลับให้ Unpack อัตโนมัติ</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>None</code></div>
+              <p>ฟังก์ชันที่ไม่มีคำสั่ง <code class="inline-code">return</code> จะคืนค่า <code class="inline-code">None</code> ออกมาโดยอัตโนมัติ</p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 9: สุ่มเลขหน้าลูกเต๋า 1 ถึง 6 (รวมทั้ง 1 และ 6)</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 9: Default & Keyword Arguments</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-purple-50 text-purple-700 border-purple-200 shrink-0">Ch.6</span>
           </div>
-          <pre><code>import random
-dice = random.__________(1, 6)
-print(dice)</code></pre>
+          <pre><code>def calc(a, b=2, c=3):
+    return a * b + c
+print(calc(4, c=5))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-9" onkeydown="if(event.key==='Enter') checkPredict(9)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-9" onkeydown="if(event.key==='Enter') checkPredict(9)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(9)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-9" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>randint</code></div>
-              <p><code class="inline-code">random.randint(1, 6)</code> จะสุ่มจำนวนเต็มโดยรวมทั้งปลายทาง 1 และ 6</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>13</code></div>
+              <p><code class="inline-code">a = 4</code>, <code class="inline-code">b = 2</code> (ใช้ค่า Default), <code class="inline-code">c = 5</code> (แทนด้วย Keyword) &rarr; <code class="inline-code">4 * 2 + 5 = 13</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 10: ปัดเศษขึ้นเสมอเพื่อคำนวณจำนวนรถตู้ที่ต้องใช้</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 10: math.ceil() vs math.floor()</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-purple-50 text-purple-700 border-purple-200 shrink-0">Ch.6</span>
           </div>
           <pre><code>import math
-vans = math.______(25 / 10)
-print(vans)  # Output: 3</code></pre>
+print(math.ceil(4.1), math.floor(4.9))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-10" onkeydown="if(event.key==='Enter') checkPredict(10)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-10" onkeydown="if(event.key==='Enter') checkPredict(10)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(10)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-10" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>ceil</code></div>
-              <p><code class="inline-code">math.ceil(2.5)</code> จะปัดเศษทศนิยมขึ้นเป็นจำนวนเต็มถัดไปเสมอ (ได้ 3)</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>5 4</code></div>
+              <p><code class="inline-code">math.ceil(4.1)</code> ปัดขึ้นเสมอเป็น <code class="inline-code">5</code> ส่วน <code class="inline-code">math.floor(4.9)</code> ปัดลงเสมอเป็น <code class="inline-code">4</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 11: ต่อข้อมูลเข้า Tuple ทีละ 1 ตัว (กับดักคอมม่า!)</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 11: Tuple Concatenation & Unpacking</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0">Ch.7</span>
           </div>
-          <pre><code>t = ()
-t += ________
-print(t)  # Output: ('CN101',)</code></pre>
+          <pre><code>t = (10, 20)
+t += (30,)
+a, b, c = t
+print(a + c)</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-11" onkeydown="if(event.key==='Enter') checkPredict(11)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-11" onkeydown="if(event.key==='Enter') checkPredict(11)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(11)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-11" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>('CN101',)</code></div>
-              <p>Tuple ที่มีสมาชิก 1 ตัว <strong>ต้องมีคอมม่าปิดท้ายเสมอ</strong> เป็น <code class="inline-code">('CN101',)</code> ไม่งั้นจะเป็น str ธรรมดาแล้วเกิด TypeError</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>40</code></div>
+              <p>ได้ <code class="inline-code">t = (10, 20, 30)</code> แล้ว Unpack เป็น <code class="inline-code">a=10, b=20, c=30</code> &rarr; <code class="inline-code">10 + 30 = 40</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 12: กลับด้านข้อความเพื่อเช็ค Palindrome</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 12: String .strip(), .split() และ .join()</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0">Ch.7</span>
           </div>
-          <pre><code>w = 'level'
-is_pal = (w == ________)
-print(is_pal)  # Output: True</code></pre>
+          <pre><code>s = "  a,b,c  "
+print("-".join(s.strip().split(",")))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-12" onkeydown="if(event.key==='Enter') checkPredict(12)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-12" onkeydown="if(event.key==='Enter') checkPredict(12)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(12)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-12" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>w[::-1]</code></div>
-              <p>ใช้ Slicing <code class="inline-code">w[::-1]</code> (step = -1) เพื่อกลับด้านข้อความจากหลังมาหน้า</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>a-b-c</code></div>
+              <p><code class="inline-code">.strip()</code> ตัดวรรคหัวท้ายได้ <code class="inline-code">"a,b,c"</code> &rarr; <code class="inline-code">.split(",")</code> ได้ <code class="inline-code">['a','b','c']</code> &rarr; เชื่อมด้วย <code class="inline-code">'-'</code> ได้ <code class="inline-code">a-b-c</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 13: รับตัวเลขหลายตัวในบรรทัดเดียวแล้วแปลงเป็น List ของ int</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 13: String Immutability Trap (ลืมรับค่ากลับ!)</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0">Ch.7</span>
           </div>
-          <pre><code>raw = '10 20 30'
-nums = [int(x) for x in raw.________]
-print(nums)  # Output: [10, 20, 30]</code></pre>
+          <pre><code>w = "apple"
+w.replace("p", "b")
+print(w)</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-13" onkeydown="if(event.key==='Enter') checkPredict(13)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-13" onkeydown="if(event.key==='Enter') checkPredict(13)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(13)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-13" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>split()</code></div>
-              <p>ใช้ <code class="inline-code">raw.split()</code> เพื่อตัดข้อความตามช่องว่างออกมาเป็นลิสต์ของคำก่อนแปลงด้วย <code class="inline-code">int(x)</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>apple</code></div>
+              <p>String เป็น <strong>Immutable</strong> การเรียก <code class="inline-code">w.replace()</code> โดยไม่เอาตัวแปร <code class="inline-code">w =</code> มารับค่ากลับ ตัวแปร <code class="inline-code">w</code> จะยังคงเป็น <code class="inline-code">apple</code> เหมือนเดิม!</p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 14: เชื่อม List ของตัวเลขให้เป็นข้อความคั่นด้วยขีด '-'</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 14: String Slicing + .upper() / .lower()</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0">Ch.7</span>
           </div>
-          <pre><code>nums = [1, 2, 3]
-out = '-'.join([________ for x in nums])
-print(out)  # Output: 1-2-3</code></pre>
+          <pre><code>s = "cn101TU"
+print(s[:2].upper() + s[-2:].lower())</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-14" onkeydown="if(event.key==='Enter') checkPredict(14)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-14" onkeydown="if(event.key==='Enter') checkPredict(14)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(14)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-14" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>str(x)</code></div>
-              <p><code class="inline-code">.join()</code> รับได้เฉพาะ String เท่านั้น จึงต้องแปลง <code class="inline-code">int</code> เป็น <code class="inline-code">str(x)</code> ก่อน</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>CNtu</code></div>
+              <p><code class="inline-code">s[:2]</code> คือ <code class="inline-code">"cn"</code> &rarr; <code class="inline-code">"CN"</code> และ <code class="inline-code">s[-2:]</code> คือ <code class="inline-code">"TU"</code> &rarr; <code class="inline-code">"tu"</code> รวมเป็น <code class="inline-code">CNtu</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 15: ลบช่องว่างหัวท้ายแล้วเช็คว่าเป็นตัวเลขล้วน</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 15: กรองเฉพาะตัวเลขด้วย .isdigit()</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0">Ch.7</span>
           </div>
-          <pre><code>s = ' 42 '
-if s.strip().________:
-    print(int(s.strip()))  # Output: 42</code></pre>
+          <pre><code>s = "A1b2C3"
+print("".join([ch for ch in s if ch.isdigit()]))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-15" onkeydown="if(event.key==='Enter') checkPredict(15)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-15" onkeydown="if(event.key==='Enter') checkPredict(15)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(15)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-15" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>isdigit()</code></div>
-              <p>ใช้ <code class="inline-code">.isdigit()</code> ตรวจสอบว่าสตริงเป็นอักขระตัวเลขล้วนหรือไม่ก่อนแปลงเป็น <code class="inline-code">int()</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>123</code></div>
+              <p>คัดเฉพาะอักขระที่เป็นตัวเลข (<code class="inline-code">'1', '2', '3'</code>) แล้วเชื่อมต่อกันแบบไม่มีตัวคั่นได้ <code class="inline-code">123</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 16: นับความถี่ตัวอักษรใน 1 บรรทัดด้วย .get()</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 16: Frequency Counter ด้วย .get()</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-amber-50 text-amber-700 border-amber-200 shrink-0">Ch.8</span>
           </div>
-          <pre><code>freq = {}
-for ch in 'aba':
-    freq[ch] = ________________
-print(freq)  # Output: {'a': 2, 'b': 1}</code></pre>
+          <pre><code>d = {}
+for ch in "abca":
+    d[ch] = d.get(ch, 0) + 1
+print(d['a'], len(d))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-16" onkeydown="if(event.key==='Enter') checkPredict(16)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-16" onkeydown="if(event.key==='Enter') checkPredict(16)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(16)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-16" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>freq.get(ch, 0) + 1</code></div>
-              <p>ท่ามาตรฐานนับความถี่: <code class="inline-code">freq.get(ch, 0) + 1</code> ช่วยดึงค่าเดิม (หรือ 0 ถ้ายังไม่มี) แล้วบวก 1 โดยไม่เกิด KeyError</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>2 3</code></div>
+              <p>นับได้ <code class="inline-code">d = {'a': 2, 'b': 1, 'c': 1}</code> ดังนั้น <code class="inline-code">d['a'] = 2</code> และจำนวน key ทั้งหมด <code class="inline-code">len(d) = 3</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 17: วนลูปดึงทั้ง Key และ Value จาก Dictionary พร้อมกัน</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 17: การดึงค่าจาก Dictionary ด้วย .get(key, default)</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-amber-50 text-amber-700 border-amber-200 shrink-0">Ch.8</span>
           </div>
-          <pre><code>d = {'x': 10, 'y': 20}
-for k, v in ________:
-    print(k, v)</code></pre>
+          <pre><code>d = {"x": 5, "y": 10}
+print(d.get("z", 0) + d.get("x", 0))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-17" onkeydown="if(event.key==='Enter') checkPredict(17)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-17" onkeydown="if(event.key==='Enter') checkPredict(17)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(17)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-17" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>d.items()</code></div>
-              <p>เมธอด <code class="inline-code">d.items()</code> จะคืนค่าเป็นคู่ <code class="inline-code">(key, value)</code> ในแต่ละรอบลูป</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>5</code></div>
+              <p>ไม่มี <code class="inline-code">"z"</code> ใน dict จึงคืนค่า default <code class="inline-code">0</code> ส่วน <code class="inline-code">"x"</code> คืน <code class="inline-code">5</code> &rarr; <code class="inline-code">0 + 5 = 5</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 18: Grouping Pattern: สร้างลิสต์ว่างก่อน append</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 18: Grouping Pattern (Dictionary of Lists)</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-amber-50 text-amber-700 border-amber-200 shrink-0">Ch.8</span>
           </div>
-          <pre><code>groups = {}
-for g, name in [('A', 'Nut'), ('A', 'Chokie')]:
-    if g not in groups:
-        ____________
-    groups[g].append(name)</code></pre>
+          <pre><code>g = {}
+for k, v in [("A", 1), ("B", 2), ("A", 3)]:
+    if k not in g:
+        g[k] = []
+    g[k].append(v)
+print(sum(g["A"]))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-18" onkeydown="if(event.key==='Enter') checkPredict(18)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-18" onkeydown="if(event.key==='Enter') checkPredict(18)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(18)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-18" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>groups[g] = []</code></div>
-              <p>ก่อน <code class="inline-code">.append()</code> เข้าหมวดหมู่ใหม่ ต้องสร้าง List ว่างให้ Key นั้นก่อนด้วย <code class="inline-code">groups[g] = []</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>4</code></div>
+              <p>กลุ่ม <code class="inline-code">"A"</code> เก็บค่า <code class="inline-code">[1, 3]</code> ผลรวม <code class="inline-code">sum([1, 3]) = 4</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 19: หาค่าสูงสุดใน Dictionary เพื่อนำไปหาเจ้าของคะแนน</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 19: กรอง Key จาก .items() ด้วยเงื่อนไข</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-amber-50 text-amber-700 border-amber-200 shrink-0">Ch.8</span>
           </div>
-          <pre><code>scores = {'Ann': 80, 'Bob': 95}
-top = max(________________)
-for k, v in scores.items():
-    if v == top: print(k)  # Output: Bob</code></pre>
+          <pre><code>d = {"a": 3, "b": 8, "c": 5}
+print([k for k, v in d.items() if v >= 5])</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-19" onkeydown="if(event.key==='Enter') checkPredict(19)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-19" onkeydown="if(event.key==='Enter') checkPredict(19)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(19)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-19" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>scores.values()</code></div>
-              <p><code class="inline-code">scores.values()</code> ดึงเฉพาะค่าคะแนนทั้งหมดออกมาให้ฟังก์ชัน <code class="inline-code">max()</code> หาค่าสูงสุด</p>
+              <div class="answer-pill text-xs m-0">Answer: <code>['b', 'c']</code></div>
+              <p>คู่ที่มี <code class="inline-code">v &gt;= 5</code> คือ <code class="inline-code">'b': 8</code> และ <code class="inline-code">'c': 5</code> จึงได้ลิสต์ของ key เป็น <code class="inline-code">['b', 'c']</code></p>
             </div>
           </details>
         </div>
         <div class="border border-slate-200 rounded-lg p-4 bg-white space-y-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 20: นับจำนวนตัวอักษรสระไม่สนพิมพ์เล็ก-ใหญ่</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900">ข้อ 20: Tuple เป็น Key ใน Dictionary</span>
             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border bg-amber-50 text-amber-700 border-amber-200 shrink-0">Ch.8</span>
           </div>
-          <pre><code>text = 'Python'
-count = sum(1 for ch in text if ____________ in 'aeiou')
-print(count)  # Output: 1</code></pre>
+          <pre><code>pts = {(0, 0): "Origin", (1, 2): "P1"}
+print(pts.get((1, 2), "None"))</code></pre>
           <div class="flex flex-wrap items-center gap-2 no-print">
-            <input type="text" id="p-inp-20" onkeydown="if(event.key==='Enter') checkPredict(20)" placeholder="พิมพ์คำตอบที่ต้องเติม..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
+            <input type="text" id="p-inp-20" onkeydown="if(event.key==='Enter') checkPredict(20)" placeholder="พิมพ์ผลลัพธ์ที่จะได้ (Output)..." class="flex-1 min-w-[180px] px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-xs font-mono text-slate-900 focus:outline-none focus:border-blue-600">
             <button onclick="checkPredict(20)" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-all">ตรวจ</button>
           </div>
           <div id="p-fb-20" class="hidden text-xs p-2.5 rounded-lg"></div>
           <details class="alt-check">
-            <summary>&gt; ดูเฉลยและเหตุผล</summary>
+            <summary>&gt; ดูคำตอบและวิธีไล่โค้ดทีละสเต็ป</summary>
             <div class="mt-2 space-y-1.5 font-normal text-xs text-slate-700">
-              <div class="answer-pill text-xs m-0">Answer: <code>ch.lower()</code></div>
-              <p>แปลงตัวอักษรเป็นพิมพ์เล็กด้วย <code class="inline-code">ch.lower()</code> ก่อนเช็ค <code class="inline-code">in 'aeiou'</code></p>
+              <div class="answer-pill text-xs m-0">Answer: <code>P1</code></div>
+              <p>Tuple เป็น Immutable จึงใช้เป็น Key ใน Dictionary ได้ ค้นหา <code class="inline-code">(1, 2)</code> พบค่า <code class="inline-code">P1</code></p>
             </div>
           </details>
         </div>
@@ -3900,13 +3892,13 @@ print(list_c)</code></pre>
       document.getElementById('quiz-score-badge').innerText = `คะแนน: ${quizScore} / 4`;
     }
 
-    // 10. Predicted 20 Fill-in-the-Blank Checker
-    const predictAnswers = {"1": ["x % 2 == 0", "x%2==0"], "2": ["for _ in range(R)", "for i in range(R)", "for r in range(R)"], "3": ["m[r][c]"], "4": ["1:-1"], "5": ["orig[:]", "orig.copy()"], "6": ["discount=0.1", "discount = 0.1"], "7": ["global cnt"], "8": ["min(a), max(a)", "min(a),max(a)"], "9": ["randint"], "10": ["ceil"], "11": ["('CN101',)", "(\"CN101\",)"], "12": ["w[::-1]"], "13": ["split()", "split(' ')"], "14": ["str(x)"], "15": ["isdigit()"], "16": ["freq.get(ch, 0) + 1", "freq.get(ch,0)+1"], "17": ["d.items()"], "18": ["groups[g] = []"], "19": ["scores.values()"], "20": ["ch.lower()"]};
+    // 10. Predicted 20 Code Tracing Checker
+    const predictAnswers = {"1": ["[50, 30]", "[50,30]"], "2": ["[9, 2, 3] [1, 8, 3]", "[9,2,3] [1,8,3]"], "3": ["[4, 8]", "[4,8]"], "4": ["[1, 20, 3, 40]", "[1,20,3,40]"], "5": ["[[1, 5], [3, 4]]", "[[1,5],[3,4]]"], "6": ["25 10"], "7": ["[1, 2, 4]", "[1,2,4]"], "8": ["None"], "9": ["13"], "10": ["5 4"], "11": ["40"], "12": ["a-b-c"], "13": ["apple"], "14": ["CNtu"], "15": ["123"], "16": ["2 3"], "17": ["5"], "18": ["4"], "19": ["['b', 'c']", "[\"b\", \"c\"]", "['b','c']"], "20": ["P1"]};
     const predictSolved = {};
     let predictScore = 0;
 
     function normCode(s) {
-      return s.trim().replace(/\s+/g, ' ').replace(/\s*([=,+*()\[\]:])\s*/g, '$1');
+      return s.trim().replace(/"/g, "'").replace(/\s+/g, ' ').replace(/\s*([,\[\]])\s*/g, '$1');
     }
 
     function checkPredict(qNum) {
@@ -3918,7 +3910,7 @@ print(list_c)</code></pre>
 
       if (!val) {
         fb.className = 'text-xs p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-900';
-        fb.innerHTML = '⚠️ กรุณาพิมพ์คำตอบก่อนกดตรวจครับ';
+        fb.innerHTML = '⚠️ กรุณาพิมพ์ผลลัพธ์ก่อนกดตรวจครับ';
         return;
       }
 
@@ -3932,10 +3924,9 @@ print(list_c)</code></pre>
         fb.innerHTML = '✅ ถูกต้อง! เยี่ยมมากครับ';
       } else {
         fb.className = 'text-xs p-2.5 rounded-lg bg-rose-50 border border-rose-300 text-rose-800';
-        fb.innerHTML = '❌ ยังไม่ตรงครับ ลองเช็ก Syntax หรือกดดู <strong>&gt; ดูเฉลยและเหตุผล</strong> ด้านล่างได้เลย';
+        fb.innerHTML = '❌ ยังไม่ตรงครับ ลองไล่ทีละบรรทัดใหม่ หรือเปิด <strong>&gt; ดูคำตอบและวิธีไล่โค้ด</strong> ด้านล่างได้เลย';
       }
     }
-
   </script>
 </body>
 </html>
