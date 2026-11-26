@@ -2589,17 +2589,18 @@ print(a)</code></pre>
         </div>
       </div>
 
-      <!-- PART 2 -->
-      <div class="step-block space-y-5 pt-6">
-        <h3 class="text-base font-bold text-blue-800 border-b border-slate-200 pb-2">ตอนที่ 2: เขียนโค้ดแก้โจทย์ปัญหา (4 ข้อใหญ่)</h3>
+            <!-- PART 2 -->
+      <div class="step-block space-y-6 pt-6">
+        <h3 class="text-base sm:text-lg font-bold text-blue-800 border-b border-slate-200 pb-2">ตอนที่ 2: เขียนโค้ดแก้โจทย์ปัญหา (4 ข้อใหญ่ — อธิบายละเอียดทุกบรรทัด)</h3>
 
         <!-- P2 Q1 -->
-        <div class="step-block space-y-3">
+        <div class="step-block space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 1: นับความถี่สระภาษาอังกฤษ (a, e, i, o, u) แบบไม่สนพิมพ์เล็ก-ใหญ่</h4>
-            <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">เติมช่องว่าง</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">เติมช่องว่าง 7 จุด</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> แปลงข้อความเป็นพิมพ์เล็กทั้งหมดด้วย <code class="inline-code">.lower()</code> ก่อน แล้ววนลูปทีละสระใน <code class="inline-code">"aeiou"</code> ส่งไปนับในฟังก์ชัน <code class="inline-code">count_char()</code></p>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> โจทย์แบ่งงานเป็น 2 ฟังก์ชัน — <code class="inline-code">print_character_count</code> ทำหน้าที่วนลูปสระทีละตัวแล้วพิมพ์ผล ส่วน <code class="inline-code">count_char</code> ทำหน้าที่นับว่าตัวอักษรเป้าหมายโผล่มากี่ครั้ง</p>
+
           <pre><code>def print_character_count(a):
     a = a.lower()
     for i in "aeiou":
@@ -2618,16 +2619,37 @@ def main():
     print_character_count(user_string)
 
 main()</code></pre>
-          <div class="answer-pill text-xs">จุดที่ต้องเช็ค: ใน <code class="inline-code">count_char(a, target)</code> ชื่อพารามิเตอร์ที่ตั้งต้องตรงกับตัวที่ใช้ใน loop (<code class="inline-code">for ch in a: if ch == target:</code>)</div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+            <div class="font-bold text-slate-900">🔍 เจาะลึกคำอธิบายทีละบรรทัด (ทำไมต้องเติมแบบนี้?):</div>
+            <ul class="list-disc list-inside space-y-1.5">
+              <li><strong><code class="inline-code">def print_character_count(a):</code></strong> — ดูจากบรรทัดถัดไปในโจทย์ที่เขียนว่า <code class="inline-code">a = a._____</code> จึงบังคับว่าพารามิเตอร์ต้องตั้งชื่อว่า <code class="inline-code">a</code></li>
+              <li><strong><code class="inline-code">a = a.lower()</code></strong> — โจทย์สั่งให้ <em>"นับตัวพิมพ์เล็กและตัวพิมพ์ใหญ่รวมกัน"</em> และคอมเมนต์ใบ้ว่า <code class="inline-code"># change all character to lower</code> จึงต้องแปลงข้อความเป็นพิมพ์เล็กทั้งหมดก่อน (อย่าลืมวงเล็บ <code class="inline-code">()</code> หลัง <code class="inline-code">lower</code>!)</li>
+              <li><strong><code class="inline-code">for i in "aeiou":</code></strong> — วนหยิบสระทีละตัวตามลำดับ <code class="inline-code">'a'</code>, <code class="inline-code">'e'</code>, <code class="inline-code">'i'</code>, <code class="inline-code">'o'</code>, <code class="inline-code">'u'</code></li>
+              <li><strong><code class="inline-code">count = count_char(a, i)</code></strong> — ส่งทั้งประโยค (<code class="inline-code">a</code>) และสระที่กำลังนับ (<code class="inline-code">i</code>) เข้าไปนับในฟังก์ชัน <code class="inline-code">count_char</code></li>
+              <li><strong><code class="inline-code">print(f"{i} = {count}")</code></strong> — จัดรูปแบบการพิมพ์ให้ตรงตามตัวอย่างการรัน เช่น <code class="inline-code">a = 2</code></li>
+              <li><strong><code class="inline-code">def count_char(a, target):</code></strong> — รับค่า 2 ตัว (ข้อความ และ ตัวอักษรที่ต้องการนับ) แล้วตั้งตัวนับเริ่มต้น <code class="inline-code">count = 0</code> วนเช็กทีละตัว <code class="inline-code">if ch == target: count += 1</code> แล้ว <code class="inline-code">return count</code> กลับออกไป</li>
+            </ul>
+          </div>
+
+          <details class="alt-check">
+            <summary>&gt; ไล่ตัวอย่างจริง: "Today is friday!" + กับดักที่ต้องระวัง</summary>
+            <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+              <p>• หลัง <code class="inline-code">a.lower()</code> จะได้ <code class="inline-code">"today is friday!"</code></p>
+              <p>• รอบ <code class="inline-code">i = 'a'</code>: เจอที่ <code class="inline-code">tod<strong>a</strong>y</code> และ <code class="inline-code">frid<strong>a</strong>y</code> &rarr; คืน <code class="inline-code">2</code> &rarr; พิมพ์ <code class="inline-code">a = 2</code></p>
+              <p>• ⚠️ <strong>กับดัก:</strong> หากลืม <code class="inline-code">return count</code> ผลลัพธ์จะกลายเป็น <code class="inline-code">a = None</code> ทันที!</p>
+            </div>
+          </details>
         </div>
 
         <!-- P2 Q2 -->
-        <div class="step-block space-y-3">
+        <div class="step-block space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 2: ระยะทาง (Distance) &amp; จุดกึ่งกลาง (Midpoint) ของคู่พิกัด</h4>
-            <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold">สำคัญ! มีจุดแก้จากชีท</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 font-semibold">ข้อใหญ่คะแนนเต็ม • มีจุดแก้จากชีท</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> รับจำนวนพิกัดด้วย <code class="inline-code">while True</code> จนกว่าจะได้เลขคู่, เก็บแต่ละจุดเป็น Tuple <code class="inline-code">(x, y)</code> ลงใน <code class="inline-code">data</code>, แล้ววนลูปทีละ 2 (<code class="inline-code">range(0, len(data), 2)</code>) เพื่อจับคู่คำนวณ</p>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> แบ่งโค้ดเป็น 4 ขั้น: (1) ฟังก์ชันสูตรระยะทาง &amp; จุดกึ่งกลาง (2) ลูปดักเลขคู่ (3) รับพิกัดเก็บเป็น List of Tuples และ (4) วนลูปทีละ 2 ตัวเพื่อจับคู่คำนวณ + หาค่าสูงสุด</p>
+
           <pre><code>import math
 
 def find_distance(c1, c2):
@@ -2666,41 +2688,67 @@ def main():
     print(f"The maximum distance is {max_dist:.3f} from ({max_c1[0]},{max_c1[1]}) and ({max_c2[0]},{max_c2[1]})")
 
 main()</code></pre>
-          <div class="bg-rose-50 border border-rose-200 rounded-lg p-3 text-xs text-rose-800 space-y-1">
+
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+            <div class="font-bold text-slate-900">🔍 อธิบายละเอียดทีละส่วน (Step-by-Step):</div>
+            <ul class="list-disc list-inside space-y-1.5">
+              <li><strong>Step 1 — ฟังก์ชัน <code class="inline-code">find_distance(c1, c2)</code> และ <code class="inline-code">find_midpoint(c1, c2)</code>:</strong> พารามิเตอร์ <code class="inline-code">c1</code>, <code class="inline-code">c2</code> รับเข้ามาเป็น Tuple <code class="inline-code">(x, y)</code> ดังนั้น <code class="inline-code">c1[0]</code> คือ <code class="inline-code">x1</code>, <code class="inline-code">c1[1]</code> คือ <code class="inline-code">y1</code> แล้วใช้ <code class="inline-code">math.sqrt(...)</code> กับการหาร 2 (ได้ float เช่น <code class="inline-code">2.0</code> ตามตัวอย่าง) คืนกลับเป็น Tuple <code class="inline-code">(x3, y3)</code></li>
+              <li><strong>Step 2 — ตรวจสอบจำนวนพิกัดที่เป็นเลขคู่ (<code class="inline-code">while True</code>):</strong> รับ <code class="inline-code">num</code> เข้ามา ถ้า <code class="inline-code">num % 2 == 0</code> ค่อย <code class="inline-code">break</code> ออกจากลูป ถ้าเป็นเลขคี่ (เช่น 7, 3) จะพิมพ์ <code class="inline-code">Error: Please input even number.</code> แล้ววนถามใหม่เรื่อยๆ</li>
+              <li><strong>Step 3 — รับค่าพิกัด <code class="inline-code">x, y</code> ในบรรทัดเดียว:</strong> ใช้ <code class="inline-code">.split()</code> แยกข้อความ เช่น <code class="inline-code">"1 2"</code> ออกเป็น <code class="inline-code">x="1"</code>, <code class="inline-code">y="2"</code> แล้วแปลงเป็น <code class="inline-code">int</code> ใส่ลงใน Tuple <code class="inline-code">(int(x), int(y))</code> ก่อน <code class="inline-code">.append()</code></li>
+              <li><strong>Step 4 — จับคู่คำนวณด้วย <code class="inline-code">range(0, len(data), 2)</code>:</strong> ใส่ Step เป็น <code class="inline-code">2</code> เพื่อกระโดดทีละคู่! เช่น ถ้ามี 6 จุด ค่า <code class="inline-code">i</code> จะเป็น <code class="inline-code">0, 2, 4</code> ทำให้จับคู่ <code class="inline-code">(data[0], data[1])</code>, <code class="inline-code">(data[2], data[3])</code>, <code class="inline-code">(data[4], data[5])</code> ได้พอดี</li>
+              <li><strong>Step 5 — หาค่าสูงสุด (<code class="inline-code">max_dist</code>):</strong> ตั้ง <code class="inline-code">max_dist = -1</code> (ระยะทางไม่มีวันติดลบ) ถ้าระยะทางคู่ไหนมากกว่า <code class="inline-code">max_dist</code> ก็อัปเดตทั้งค่า <code class="inline-code">max_dist</code> และคู่พิกัด <code class="inline-code">max_c1, max_c2</code> เก็บไว้พิมพ์บรรทัดสุดท้าย</li>
+            </ul>
+          </div>
+
+          <div class="bg-rose-50 border border-rose-200 rounded-lg p-3.5 text-xs text-rose-800 space-y-1.5">
             <strong>⚠️ จุดสำคัญที่ช่วยแก้ให้จากลายมือในชีท (หน้า 5–6):</strong>
-            <p>1. หน้า 5 เขียน <code class="inline-code">data.append(int(x), int(y))</code> &rarr; <strong>ขาดวงเล็บ Tuple!</strong> ต้องใส่ 2 ชั้นเป็น <code class="inline-code">data.append((int(x), int(y)))</code> ไม่งั้น Error เพราะ <code class="inline-code">.append()</code> รับได้แค่ 1 ค่า</p>
-            <p>2. หน้า 6 ระวังคำสะกด <code class="inline-code">maximum</code> (ไม่ใช่ maxium) และ <code class="inline-code">{max_dist:.3f}</code> (ทศนิยม 3 ตำแหน่งตามโจทย์) รวมถึงพิกัดในตัวอย่างไม่มีช่องว่างหลังจุลภาค เช่น <code class="inline-code">(1,2)</code></p>
+            <p>1. หน้า 5 เขียน <code class="inline-code">data.append(int(x), int(y))</code> &rarr; <strong>ขาดวงเล็บ Tuple!</strong> ต้องใส่ 2 ชั้นเป็น <code class="inline-code">data.append((int(x), int(y)))</code> ไม่งั้น Error ทันทีเพราะ <code class="inline-code">.append()</code> รับได้แค่ 1 ค่า</p>
+            <p>2. หน้า 6 ระวังคำสะกด <code class="inline-code">maximum</code> (ไม่ใช่ maxium), ทศนิยม 3 ตำแหน่ง <code class="inline-code">{dist:.3f}</code> และพิกัดในตัวอย่างไม่มีช่องว่างหลังจุลภาค เช่น <code class="inline-code">(1,2)</code> และ <code class="inline-code">(2.0,3.0)</code></p>
           </div>
         </div>
 
         <!-- P2 Q3 -->
-        <div class="step-block space-y-3">
+        <div class="step-block space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 3: ฟังก์ชัน remove_value() ลบตัวเลขที่กำหนดออกจากลิสต์</h4>
             <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">เขียนฟังก์ชัน</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> สร้างลิสต์ว่าง <code class="inline-code">result = []</code> แล้วเก็บเฉพาะตัวที่ไม่เท่ากับ <code class="inline-code">del_val</code> ปลอดภัยที่สุด (ไม่เพี้ยนเหมือนใช้ <code class="inline-code">.remove()</code> ระหว่างวน <code class="inline-code">for</code>)</p>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> โจทย์ให้ <code class="inline-code">main()</code> มาแล้วเรียบร้อย (เรียก <code class="inline-code">remove_value(list_a, del_val)</code>) หน้าที่เราคือเขียนแค่ฟังก์ชัน <code class="inline-code">remove_value</code> ที่รับ 2 ค่าแล้วคืนลิสต์ใหม่ที่ไม่มี <code class="inline-code">del_val</code> เหลืออยู่</p>
+
           <pre><code>def remove_value(list_a, del_val):
     result = []
     for item in list_a:
         if item != del_val:
             result.append(item)
     return result</code></pre>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+            <div class="font-bold text-slate-900">🔍 อธิบายละเอียดทีละบรรทัด:</div>
+            <ul class="list-disc list-inside space-y-1.5">
+              <li><strong><code class="inline-code">def remove_value(list_a, del_val):</code></strong> — รับพารามิเตอร์ 2 ตัวตามที่ <code class="inline-code">main()</code> ส่งเข้ามา คือลิสต์ต้นฉบับ และตัวเลขที่ต้องการลบ</li>
+              <li><strong><code class="inline-code">result = []</code></strong> — สร้างลิสต์ว่างไว้เก็บผลลัพธ์แทนการแก้ไข <code class="inline-code">list_a</code> โดยตรง</li>
+              <li><strong><code class="inline-code">for item in list_a:</code> + <code class="inline-code">if item != del_val:</code></strong> — วนเช็กทีละตัว ถ้าตัวไหน <strong>ไม่เท่ากับ</strong> ค่าที่ต้องการลบ ก็ให้ <code class="inline-code">result.append(item)</code> เก็บไว้ (ตัวที่เท่ากับ <code class="inline-code">del_val</code> จะถูกข้ามทิ้งทั้งหมดแม้จะมีซ้ำหลายตัว!)</li>
+              <li><strong><code class="inline-code">return result</code></strong> — ส่งลิสต์ใหม่กลับไปให้ตัวแปร <code class="inline-code">result_list</code> ใน <code class="inline-code">main()</code></li>
+            </ul>
+          </div>
+
           <details class="alt-check">
-            <summary>&gt; ตรวจคำตอบ — ทำไมไม่ใช้ .remove() ใน for loop?</summary>
-            <div class="mt-2 text-xs text-slate-700 font-normal">
-              ถ้าลบสมาชิกออกจาก <code class="inline-code">list_a</code> โดยตรงระหว่างวน <code class="inline-code">for</code> ตำแหน่ง index จะเลื่อนลงทำให้ข้ามตัวถัดไปได้ (หรือถ้าอยากใช้ใน <code class="inline-code">list_a</code> เดิม ต้องใช้ <code class="inline-code">while del_val in list_a: list_a.remove(del_val)</code> แล้ว <code class="inline-code">return list_a</code>) แต่วิธีสร้าง <code class="inline-code">result = []</code> แบบที่เขียนในชีทถูกต้องและปลอดภัย 100% ครับ!
+            <summary>&gt; ตรวจคำตอบ — ทำไมวิธีนี้ดีกว่าใช้ .remove() ใน for loop?</summary>
+            <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
+              <p>• <strong>กับดักคลาสสิก:</strong> ถ้าใช้ <code class="inline-code">for x in list_a: if x == del_val: list_a.remove(x)</code> เวลาลบตัวหนึ่งออก index ของตัวถัดไปจะเลื่อนมาแทนที่ ทำให้ลูป <code class="inline-code">for</code> กระโดดข้ามตัวถัดไปได้!</p>
+              <p>• หรือถ้าใช้ <code class="inline-code">List Comprehension</code> เขียนสั้นๆ ก็ได้เหมือนกัน: <code class="inline-code">return [item for item in list_a if item != del_val]</code></p>
             </div>
           </details>
         </div>
 
         <!-- P2 Q4 -->
-        <div class="step-block space-y-3">
+        <div class="step-block space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <h4 class="text-sm sm:text-base font-bold text-slate-900">ข้อ 4: ผสมสตริง s1 (หน้าไปหลัง) สลับกับ s2 (หลังไปหน้า)</h4>
             <span class="text-xs px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 font-semibold">String Slicing + Loop</span>
           </div>
-          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> กลับด้าน <code class="inline-code">s2</code> ด้วย <code class="inline-code">s2[::-1]</code> ก่อน แล้ววนลูปสลับหยิบทีละตัวเท่าความยาวที่สั้นกว่า (<code class="inline-code">min_len</code>) จากนั้นนำส่วนที่เหลือของตัวที่ยาวกว่ามาต่อท้ายตรงๆ</p>
+          <p class="text-xs sm:text-sm text-slate-600"><em>Intuition:</em> แทนที่จะนั่งคำนวณ index ถอยหลัง <code class="inline-code">len(s2)-1-i</code> ให้ยุ่งยาก ใช้ <code class="inline-code">s2_rev = s2[::-1]</code> กลับด้าน <code class="inline-code">s2</code> รอไว้เลย! แล้วดึงคู่ที่ <code class="inline-code">i</code> เหมือนกันจนครบตัวที่สั้นกว่า</p>
+
           <pre><code>s1 = input("Enter string1: ")
 s2 = input("Enter string2: ")
 
@@ -2717,12 +2765,24 @@ elif len(s2) &gt; len(s1):
     result += s2_rev[min_len:]
 
 print(f"The mix string is {result}.")</code></pre>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-xs sm:text-sm text-slate-700 space-y-2">
+            <div class="font-bold text-slate-900">🔍 อธิบายละเอียดทีละขั้น:</div>
+            <ul class="list-disc list-inside space-y-1.5">
+              <li><strong>ขั้นที่ 1 (<code class="inline-code">s2_rev = s2[::-1]</code>):</strong> กลับด้าน <code class="inline-code">s2</code> จากหลังมาหน้า ทำให้ตัวสุดท้ายของ <code class="inline-code">s2</code> มาอยู่ที่ index <code class="inline-code">0</code> และตัวรองสุดท้ายอยู่ที่ index <code class="inline-code">1</code> พอดี</li>
+              <li><strong>ขั้นที่ 2 (<code class="inline-code">min_len = min(len(s1), len(s2))</code>):</strong> หาความยาวของคำที่สั้นกว่า เพื่อล็อกจำนวนรอบใน <code class="inline-code">for i in range(min_len)</code> ไม่ให้หลุดขอบเกิด <code class="inline-code">IndexError</code></li>
+              <li><strong>ขั้นที่ 3 (<code class="inline-code">result += s1[i] + s2_rev[i]</code>):</strong> วนหยิบตัวที่ <code class="inline-code">i</code> ของ <code class="inline-code">s1</code> ต่อด้วยตัวที่ <code class="inline-code">i</code> ของ <code class="inline-code">s2_rev</code> ทีละคู่</li>
+              <li><strong>ขั้นที่ 4 (เก็บหางที่เหลือ):</strong> ถ้า <code class="inline-code">s1</code> ยาวกว่าให้นำ <code class="inline-code">s1[min_len:]</code> มาต่อท้าย แต่ถ้า <code class="inline-code">s2</code> ยาวกว่าให้นำ <code class="inline-code">s2_rev[min_len:]</code> มาต่อท้าย (ไม่ต้องสลับเพิ่มตามโจทย์!)</li>
+              <li><strong>ข้อควรระวังจากตัวอย่าง:</strong> อย่าลืมจุด <code class="inline-code">.</code> ปิดท้ายประโยคใน <code class="inline-code">print(f"The mix string is {result}.")</code> ด้วยนะครับ!</li>
+            </ul>
+          </div>
+
           <details class="alt-check">
-            <summary>&gt; ตรวจคำตอบ — ไล่เคสตัวอย่างที่ 3 ("Any" + "Interest")</summary>
-            <div class="mt-2 text-xs text-slate-700 space-y-1 font-normal">
-              <p>• <code class="inline-code">s1 = "Any"</code> (ยาว 3), <code class="inline-code">s2 = "Interest"</code> &rarr; <code class="inline-code">s2_rev = "tseretnI"</code> (ยาว 8)</p>
-              <p>• <code class="inline-code">min_len = 3</code>: สลับ 3 คู่แรกได้ <code class="inline-code">'A'+'t' + 'n'+'s' + 'y'+'e' = "Atnsye"</code></p>
-              <p>• <code class="inline-code">s2</code> ยาวกว่า &rarr; ต่อท้ายด้วย <code class="inline-code">s2_rev[3:] = "retnI"</code> &rarr; รวมเป็น <code class="inline-code">AtnsyeretnI</code> ตรงตามตัวอย่างเป๊ะ!</p>
+            <summary>&gt; ไล่เทียบครบทั้ง 3 ตัวอย่างการรัน</summary>
+            <div class="mt-2 text-xs text-slate-700 space-y-1.5 font-normal">
+              <p>• <strong>ตัวอย่าง 1 (<code class="inline-code">Abc</code> + <code class="inline-code">xYz</code>):</strong> ยาว 3 เท่ากัน, <code class="inline-code">s2_rev = "zYx"</code> &rarr; <code class="inline-code">Az + bY + cx = AzbYcx</code></p>
+              <p>• <strong>ตัวอย่าง 2 (<code class="inline-code">Content</code> + <code class="inline-code">Page</code>):</strong> <code class="inline-code">s1</code> ยาว 7, <code class="inline-code">s2_rev = "egaP"</code> ยาว 4 &rarr; 4 คู่แรกได้ <code class="inline-code">CeognatP</code> + หางของ <code class="inline-code">s1[4:]</code> คือ <code class="inline-code">ent</code> &rarr; <code class="inline-code">CeognatPent</code></p>
+              <p>• <strong>ตัวอย่าง 3 (<code class="inline-code">Any</code> + <code class="inline-code">Interest</code>):</strong> <code class="inline-code">s1</code> ยาว 3, <code class="inline-code">s2_rev = "tseretnI"</code> ยาว 8 &rarr; 3 คู่แรกได้ <code class="inline-code">Atnsye</code> + หางของ <code class="inline-code">s2_rev[3:]</code> คือ <code class="inline-code">retnI</code> &rarr; <code class="inline-code">AtnsyeretnI</code></p>
             </div>
           </details>
         </div>
